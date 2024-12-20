@@ -1,0 +1,677 @@
+nohup: ignoring input
+/home/uig93971/src/sam2/sam2/modeling/sam/transformer.py:23: UserWarning: Flash Attention is disabled as it requires a GPU with Ampere (8.0) CUDA capability.
+  OLD_GPU, USE_FLASH_ATTN, MATH_KERNEL_ON = get_sdpa_settings()
+using device: cuda
+Starting inference for AVA...
+Processed videos 1/127
+Time passed: 40.5389 seconds, Avg time per video: 40.5389 seconds
+Processed videos 2/127
+Time passed: 90.1653 seconds, Avg time per video: 45.0827 seconds
+Processed videos 3/127
+Time passed: 125.1082 seconds, Avg time per video: 41.7027 seconds
+Processed videos 4/127
+Time passed: 153.9530 seconds, Avg time per video: 38.4883 seconds
+Processed videos 5/127
+Time passed: 181.9024 seconds, Avg time per video: 36.3805 seconds
+Processed videos 6/127
+Time passed: 228.4839 seconds, Avg time per video: 38.0807 seconds
+Processed videos 7/127
+Time passed: 268.1039 seconds, Avg time per video: 38.3006 seconds
+Processed videos 8/127
+Time passed: 308.3510 seconds, Avg time per video: 38.5439 seconds
+Processed videos 9/127
+Time passed: 348.8944 seconds, Avg time per video: 38.7660 seconds
+Processed videos 10/127
+Time passed: 385.9831 seconds, Avg time per video: 38.5983 seconds
+Processed videos 11/127
+Time passed: 420.3795 seconds, Avg time per video: 38.2163 seconds
+Processed videos 12/127
+Time passed: 457.0932 seconds, Avg time per video: 38.0911 seconds
+Processed videos 13/127
+Time passed: 485.5610 seconds, Avg time per video: 37.3508 seconds
+Processed videos 14/127
+Time passed: 539.4304 seconds, Avg time per video: 38.5307 seconds
+Processed videos 15/127
+Time passed: 572.1379 seconds, Avg time per video: 38.1425 seconds
+Processed videos 16/127
+Time passed: 604.8734 seconds, Avg time per video: 37.8046 seconds
+Processed videos 17/127
+Time passed: 632.2393 seconds, Avg time per video: 37.1906 seconds
+Processed videos 18/127
+Time passed: 681.6728 seconds, Avg time per video: 37.8707 seconds
+Processed videos 19/127
+Time passed: 717.3652 seconds, Avg time per video: 37.7561 seconds
+Processed videos 20/127
+Time passed: 751.0361 seconds, Avg time per video: 37.5518 seconds
+Processed videos 21/127
+Time passed: 796.9974 seconds, Avg time per video: 37.9523 seconds
+Processed videos 22/127
+Time passed: 827.9766 seconds, Avg time per video: 37.6353 seconds
+Processed videos 23/127
+Time passed: 863.6390 seconds, Avg time per video: 37.5495 seconds
+Processed videos 24/127
+Time passed: 897.6457 seconds, Avg time per video: 37.4019 seconds
+Processed videos 25/127
+Time passed: 935.9441 seconds, Avg time per video: 37.4378 seconds
+Processed videos 26/127
+Time passed: 978.0969 seconds, Avg time per video: 37.6191 seconds
+Processed videos 27/127
+Time passed: 1015.5460 seconds, Avg time per video: 37.6128 seconds
+Processed videos 28/127
+Time passed: 1045.2056 seconds, Avg time per video: 37.3288 seconds
+Processed videos 29/127
+Time passed: 1073.7853 seconds, Avg time per video: 37.0271 seconds
+Processed videos 30/127
+Time passed: 1115.0942 seconds, Avg time per video: 37.1698 seconds
+Processed videos 31/127
+Time passed: 1158.6497 seconds, Avg time per video: 37.3758 seconds
+Processed videos 32/127
+Time passed: 1192.0527 seconds, Avg time per video: 37.2516 seconds
+Processed videos 33/127
+Time passed: 1229.5664 seconds, Avg time per video: 37.2596 seconds
+Processed videos 34/127
+Time passed: 1266.7113 seconds, Avg time per video: 37.2562 seconds
+Processed videos 35/127
+Time passed: 1303.1954 seconds, Avg time per video: 37.2342 seconds
+Processed videos 36/127
+Time passed: 1338.0323 seconds, Avg time per video: 37.1676 seconds
+Processed videos 37/127
+Time passed: 1372.3982 seconds, Avg time per video: 37.0918 seconds
+Processed videos 38/127
+Time passed: 1407.7894 seconds, Avg time per video: 37.0471 seconds
+Processed videos 39/127
+Time passed: 1449.8655 seconds, Avg time per video: 37.1760 seconds
+Processed videos 40/127
+Time passed: 1498.3659 seconds, Avg time per video: 37.4591 seconds
+Processed videos 41/127
+Time passed: 1537.1702 seconds, Avg time per video: 37.4920 seconds
+Processed videos 42/127
+Time passed: 1566.8882 seconds, Avg time per video: 37.3069 seconds
+Processed videos 43/127
+Time passed: 1615.0253 seconds, Avg time per video: 37.5587 seconds
+Processed videos 44/127
+Time passed: 1644.2951 seconds, Avg time per video: 37.3703 seconds
+Processed videos 45/127
+Time passed: 1679.3243 seconds, Avg time per video: 37.3183 seconds
+Processed videos 46/127
+Time passed: 1717.3059 seconds, Avg time per video: 37.3327 seconds
+Processed videos 47/127
+Time passed: 1764.2018 seconds, Avg time per video: 37.5362 seconds
+Processed videos 48/127
+Time passed: 1809.9088 seconds, Avg time per video: 37.7064 seconds
+Processed videos 49/127
+Time passed: 1845.7710 seconds, Avg time per video: 37.6688 seconds
+Processed videos 50/127
+Time passed: 1885.3875 seconds, Avg time per video: 37.7078 seconds
+Processed videos 51/127
+Time passed: 1930.6397 seconds, Avg time per video: 37.8557 seconds
+Processed videos 52/127
+Time passed: 1961.5426 seconds, Avg time per video: 37.7220 seconds
+Processed videos 53/127
+Time passed: 1991.9468 seconds, Avg time per video: 37.5839 seconds
+Processed videos 54/127
+Time passed: 2027.9915 seconds, Avg time per video: 37.5554 seconds
+Processed videos 55/127
+Time passed: 2057.5927 seconds, Avg time per video: 37.4108 seconds
+Processed videos 56/127
+Time passed: 2100.7548 seconds, Avg time per video: 37.5135 seconds
+Processed videos 57/127
+Time passed: 2139.9599 seconds, Avg time per video: 37.5432 seconds
+Processed videos 58/127
+Time passed: 2174.2954 seconds, Avg time per video: 37.4879 seconds
+Processed videos 59/127
+Time passed: 2208.1616 seconds, Avg time per video: 37.4265 seconds
+Processed videos 60/127
+Time passed: 2243.2152 seconds, Avg time per video: 37.3869 seconds
+Processed videos 61/127
+Time passed: 2284.5174 seconds, Avg time per video: 37.4511 seconds
+Processed videos 62/127
+Time passed: 2315.3919 seconds, Avg time per video: 37.3450 seconds
+Processed videos 63/127
+Time passed: 2352.1580 seconds, Avg time per video: 37.3358 seconds
+Processed videos 64/127
+Time passed: 2389.5466 seconds, Avg time per video: 37.3367 seconds
+Processed videos 65/127
+Time passed: 2421.7569 seconds, Avg time per video: 37.2578 seconds
+Processed videos 66/127
+Time passed: 2450.5725 seconds, Avg time per video: 37.1299 seconds
+Processed videos 67/127
+Time passed: 2480.3894 seconds, Avg time per video: 37.0207 seconds
+Processed videos 68/127
+Time passed: 2512.5263 seconds, Avg time per video: 36.9489 seconds
+Processed videos 69/127
+Time passed: 2549.8113 seconds, Avg time per video: 36.9538 seconds
+Processed videos 70/127
+Time passed: 2589.0463 seconds, Avg time per video: 36.9864 seconds
+Processed videos 71/127
+Time passed: 2626.2008 seconds, Avg time per video: 36.9887 seconds
+Processed videos 72/127
+Time passed: 2667.6573 seconds, Avg time per video: 37.0508 seconds
+Processed videos 73/127
+Time passed: 2702.0163 seconds, Avg time per video: 37.0139 seconds
+Processed videos 74/127
+Time passed: 2751.4251 seconds, Avg time per video: 37.1814 seconds
+Processed videos 75/127
+Time passed: 2789.7630 seconds, Avg time per video: 37.1968 seconds
+Processed videos 76/127
+Time passed: 2821.9057 seconds, Avg time per video: 37.1303 seconds
+Processed videos 77/127
+Time passed: 2858.7944 seconds, Avg time per video: 37.1272 seconds
+Processed videos 78/127
+Time passed: 2887.1542 seconds, Avg time per video: 37.0148 seconds
+Processed videos 79/127
+Time passed: 2925.4071 seconds, Avg time per video: 37.0305 seconds
+Processed videos 80/127
+Time passed: 2956.1665 seconds, Avg time per video: 36.9521 seconds
+Processed videos 81/127
+Time passed: 2990.7694 seconds, Avg time per video: 36.9231 seconds
+Processed videos 82/127
+Time passed: 3023.6985 seconds, Avg time per video: 36.8744 seconds
+Processed videos 83/127
+Time passed: 3065.1637 seconds, Avg time per video: 36.9297 seconds
+Processed videos 84/127
+Time passed: 3099.6445 seconds, Avg time per video: 36.9005 seconds
+Processed videos 85/127
+Time passed: 3135.9477 seconds, Avg time per video: 36.8935 seconds
+Processed videos 86/127
+Time passed: 3174.4080 seconds, Avg time per video: 36.9117 seconds
+Processed videos 87/127
+Time passed: 3210.6282 seconds, Avg time per video: 36.9038 seconds
+Processed videos 88/127
+Time passed: 3265.6256 seconds, Avg time per video: 37.1094 seconds
+Processed videos 89/127
+Time passed: 3297.8765 seconds, Avg time per video: 37.0548 seconds
+Processed videos 90/127
+Time passed: 3330.9516 seconds, Avg time per video: 37.0106 seconds
+Processed videos 91/127
+Time passed: 3368.9019 seconds, Avg time per video: 37.0209 seconds
+Processed videos 92/127
+Time passed: 3416.8901 seconds, Avg time per video: 37.1401 seconds
+Processed videos 93/127
+Time passed: 3450.4244 seconds, Avg time per video: 37.1013 seconds
+Processed videos 94/127
+Time passed: 3487.1300 seconds, Avg time per video: 37.0971 seconds
+Processed videos 95/127
+Time passed: 3543.6025 seconds, Avg time per video: 37.3011 seconds
+Processed videos 96/127
+Time passed: 3574.5233 seconds, Avg time per video: 37.2346 seconds
+Processed videos 97/127
+Time passed: 3613.5137 seconds, Avg time per video: 37.2527 seconds
+Processed videos 98/127
+Time passed: 3649.9730 seconds, Avg time per video: 37.2446 seconds
+Processed videos 99/127
+Time passed: 3689.7940 seconds, Avg time per video: 37.2706 seconds
+Processed videos 100/127
+Time passed: 3728.6193 seconds, Avg time per video: 37.2862 seconds
+Processed videos 101/127
+Time passed: 3758.6880 seconds, Avg time per video: 37.2147 seconds
+Processed videos 102/127
+Time passed: 3789.1648 seconds, Avg time per video: 37.1487 seconds
+Processed videos 103/127
+Time passed: 3824.9868 seconds, Avg time per video: 37.1358 seconds
+Processed videos 104/127
+Time passed: 3857.4574 seconds, Avg time per video: 37.0909 seconds
+Processed videos 105/127
+Time passed: 3887.2437 seconds, Avg time per video: 37.0214 seconds
+Processed videos 106/127
+Time passed: 3916.8046 seconds, Avg time per video: 36.9510 seconds
+Processed videos 107/127
+Time passed: 3946.0983 seconds, Avg time per video: 36.8794 seconds
+Processed videos 108/127
+Time passed: 3985.9353 seconds, Avg time per video: 36.9068 seconds
+Processed videos 109/127
+Time passed: 4022.7066 seconds, Avg time per video: 36.9056 seconds
+Processed videos 110/127
+Time passed: 4051.8805 seconds, Avg time per video: 36.8353 seconds
+Processed videos 111/127
+Time passed: 4085.2621 seconds, Avg time per video: 36.8042 seconds
+Processed videos 112/127
+Time passed: 4121.5886 seconds, Avg time per video: 36.7999 seconds
+Processed videos 113/127
+Time passed: 4157.3686 seconds, Avg time per video: 36.7909 seconds
+Processed videos 114/127
+Time passed: 4199.4720 seconds, Avg time per video: 36.8375 seconds
+Processed videos 115/127
+Time passed: 4238.5817 seconds, Avg time per video: 36.8572 seconds
+Processed videos 116/127
+Time passed: 4282.6137 seconds, Avg time per video: 36.9191 seconds
+Processed videos 117/127
+Time passed: 4314.2506 seconds, Avg time per video: 36.8739 seconds
+Processed videos 118/127
+Time passed: 4342.5912 seconds, Avg time per video: 36.8016 seconds
+Processed videos 119/127
+Time passed: 4376.9147 seconds, Avg time per video: 36.7808 seconds
+Processed videos 120/127
+Time passed: 4418.2033 seconds, Avg time per video: 36.8184 seconds
+Processed videos 121/127
+Time passed: 4455.6548 seconds, Avg time per video: 36.8236 seconds
+Processed videos 122/127
+Time passed: 4492.4131 seconds, Avg time per video: 36.8231 seconds
+Processed videos 123/127
+Time passed: 4522.3438 seconds, Avg time per video: 36.7670 seconds
+Processed videos 124/127
+Time passed: 4557.3047 seconds, Avg time per video: 36.7525 seconds
+Processed videos 125/127
+Time passed: 4595.1310 seconds, Avg time per video: 36.7610 seconds
+Processed videos 126/127
+Time passed: 4633.7347 seconds, Avg time per video: 36.7757 seconds
+Processed videos 127/127
+Time passed: 4668.1907 seconds, Avg time per video: 36.7574 seconds
+/home/uig93971/src/sam2/sam2/modeling/sam/transformer.py:23: UserWarning: Flash Attention is disabled as it requires a GPU with Ampere (8.0) CUDA capability.
+  OLD_GPU, USE_FLASH_ATTN, MATH_KERNEL_ON = get_sdpa_settings()
+using device: cuda
+Starting inference for HACS...
+Processed videos 1/206
+Time passed: 45.8588 seconds, Avg time per video: 45.8588 seconds
+Processed videos 2/206
+Time passed: 82.3034 seconds, Avg time per video: 41.1517 seconds
+Processed videos 3/206
+Time passed: 126.8482 seconds, Avg time per video: 42.2827 seconds
+Processed videos 4/206
+Time passed: 170.8759 seconds, Avg time per video: 42.7190 seconds
+Processed videos 5/206
+Time passed: 209.1724 seconds, Avg time per video: 41.8345 seconds
+Processed videos 6/206
+Time passed: 246.6633 seconds, Avg time per video: 41.1105 seconds
+Processed videos 7/206
+Time passed: 284.5297 seconds, Avg time per video: 40.6471 seconds
+Processed videos 8/206
+Time passed: 318.0693 seconds, Avg time per video: 39.7587 seconds
+Processed videos 9/206
+Time passed: 353.8282 seconds, Avg time per video: 39.3142 seconds
+Processed videos 10/206
+Time passed: 376.9298 seconds, Avg time per video: 37.6930 seconds
+Processed videos 11/206
+Time passed: 415.2618 seconds, Avg time per video: 37.7511 seconds
+Processed videos 12/206
+Time passed: 455.4693 seconds, Avg time per video: 37.9558 seconds
+Processed videos 13/206
+Time passed: 489.6494 seconds, Avg time per video: 37.6653 seconds
+Processed videos 14/206
+Time passed: 505.2499 seconds, Avg time per video: 36.0893 seconds
+Processed videos 15/206
+Time passed: 540.3219 seconds, Avg time per video: 36.0215 seconds
+Processed videos 16/206
+Time passed: 576.1444 seconds, Avg time per video: 36.0090 seconds
+Processed videos 17/206
+Time passed: 613.2379 seconds, Avg time per video: 36.0728 seconds
+Processed videos 18/206
+Time passed: 647.8431 seconds, Avg time per video: 35.9913 seconds
+Processed videos 19/206
+Time passed: 684.1818 seconds, Avg time per video: 36.0096 seconds
+Processed videos 20/206
+Time passed: 721.2531 seconds, Avg time per video: 36.0627 seconds
+Processed videos 21/206
+Time passed: 763.1847 seconds, Avg time per video: 36.3421 seconds
+Processed videos 22/206
+Time passed: 802.1741 seconds, Avg time per video: 36.4625 seconds
+Processed videos 23/206
+Time passed: 847.5855 seconds, Avg time per video: 36.8515 seconds
+Processed videos 24/206
+Time passed: 885.3573 seconds, Avg time per video: 36.8899 seconds
+Processed videos 25/206
+Time passed: 926.8337 seconds, Avg time per video: 37.0733 seconds
+Processed videos 26/206
+Time passed: 969.2903 seconds, Avg time per video: 37.2804 seconds
+Processed videos 27/206
+Time passed: 1007.8411 seconds, Avg time per video: 37.3274 seconds
+Processed videos 28/206
+Time passed: 1050.7293 seconds, Avg time per video: 37.5260 seconds
+Processed videos 29/206
+Time passed: 1083.2328 seconds, Avg time per video: 37.3529 seconds
+Processed videos 30/206
+Time passed: 1119.9357 seconds, Avg time per video: 37.3312 seconds
+Processed videos 31/206
+Time passed: 1157.2127 seconds, Avg time per video: 37.3294 seconds
+Processed videos 32/206
+Time passed: 1193.0566 seconds, Avg time per video: 37.2830 seconds
+Processed videos 33/206
+Time passed: 1227.2256 seconds, Avg time per video: 37.1887 seconds
+Processed videos 34/206
+Time passed: 1263.7993 seconds, Avg time per video: 37.1706 seconds
+Processed videos 35/206
+Time passed: 1308.1316 seconds, Avg time per video: 37.3752 seconds
+Processed videos 36/206
+Time passed: 1342.4580 seconds, Avg time per video: 37.2905 seconds
+Processed videos 37/206
+Time passed: 1371.0426 seconds, Avg time per video: 37.0552 seconds
+Processed videos 38/206
+Time passed: 1409.7017 seconds, Avg time per video: 37.0974 seconds
+Processed videos 39/206
+Time passed: 1428.9625 seconds, Avg time per video: 36.6401 seconds
+Processed videos 40/206
+Time passed: 1464.5227 seconds, Avg time per video: 36.6131 seconds
+Processed videos 41/206
+Time passed: 1511.2574 seconds, Avg time per video: 36.8599 seconds
+Processed videos 42/206
+Time passed: 1547.9302 seconds, Avg time per video: 36.8555 seconds
+Processed videos 43/206
+Time passed: 1583.9784 seconds, Avg time per video: 36.8367 seconds
+Processed videos 44/206
+Time passed: 1615.9269 seconds, Avg time per video: 36.7256 seconds
+Processed videos 45/206
+Time passed: 1652.3125 seconds, Avg time per video: 36.7181 seconds
+Processed videos 46/206
+Time passed: 1688.0428 seconds, Avg time per video: 36.6966 seconds
+Processed videos 47/206
+Time passed: 1725.3646 seconds, Avg time per video: 36.7099 seconds
+Processed videos 48/206
+Time passed: 1767.6291 seconds, Avg time per video: 36.8256 seconds
+Processed videos 49/206
+Time passed: 1802.7974 seconds, Avg time per video: 36.7918 seconds
+Processed videos 50/206
+Time passed: 1853.2292 seconds, Avg time per video: 37.0646 seconds
+Processed videos 51/206
+Time passed: 1889.7853 seconds, Avg time per video: 37.0546 seconds
+Processed videos 52/206
+Time passed: 1925.8000 seconds, Avg time per video: 37.0346 seconds
+Processed videos 53/206
+Time passed: 1963.1009 seconds, Avg time per video: 37.0396 seconds
+Processed videos 54/206
+Time passed: 2004.9616 seconds, Avg time per video: 37.1289 seconds
+Processed videos 55/206
+Time passed: 2042.2305 seconds, Avg time per video: 37.1315 seconds
+Processed videos 56/206
+Time passed: 2088.1226 seconds, Avg time per video: 37.2879 seconds
+Processed videos 57/206
+Time passed: 2125.0812 seconds, Avg time per video: 37.2821 seconds
+Processed videos 58/206
+Time passed: 2172.7704 seconds, Avg time per video: 37.4616 seconds
+Processed videos 59/206
+Time passed: 2218.2784 seconds, Avg time per video: 37.5979 seconds
+Processed videos 60/206
+Time passed: 2261.3444 seconds, Avg time per video: 37.6891 seconds
+Processed videos 61/206
+Time passed: 2297.9204 seconds, Avg time per video: 37.6708 seconds
+Processed videos 62/206
+Time passed: 2337.3285 seconds, Avg time per video: 37.6988 seconds
+Processed videos 63/206
+Time passed: 2376.6076 seconds, Avg time per video: 37.7239 seconds
+Processed videos 64/206
+Time passed: 2417.2155 seconds, Avg time per video: 37.7690 seconds
+Processed videos 65/206
+Time passed: 2456.7765 seconds, Avg time per video: 37.7966 seconds
+Processed videos 66/206
+Time passed: 2496.3562 seconds, Avg time per video: 37.8236 seconds
+Processed videos 67/206
+Time passed: 2524.7186 seconds, Avg time per video: 37.6824 seconds
+Processed videos 68/206
+Time passed: 2559.4890 seconds, Avg time per video: 37.6395 seconds
+Processed videos 69/206
+Time passed: 2595.6197 seconds, Avg time per video: 37.6177 seconds
+Processed videos 70/206
+Time passed: 2630.6516 seconds, Avg time per video: 37.5807 seconds
+Processed videos 71/206
+Time passed: 2668.0830 seconds, Avg time per video: 37.5786 seconds
+Processed videos 72/206
+Time passed: 2713.6329 seconds, Avg time per video: 37.6893 seconds
+Processed videos 73/206
+Time passed: 2754.0521 seconds, Avg time per video: 37.7267 seconds
+Processed videos 74/206
+Time passed: 2802.9998 seconds, Avg time per video: 37.8784 seconds
+Processed videos 75/206
+Time passed: 2840.1068 seconds, Avg time per video: 37.8681 seconds
+Processed videos 76/206
+Time passed: 2872.3646 seconds, Avg time per video: 37.7943 seconds
+Processed videos 77/206
+Time passed: 2907.0458 seconds, Avg time per video: 37.7538 seconds
+Processed videos 78/206
+Time passed: 2943.7295 seconds, Avg time per video: 37.7401 seconds
+Processed videos 79/206
+Time passed: 2982.9958 seconds, Avg time per video: 37.7594 seconds
+Processed videos 80/206
+Time passed: 3022.9119 seconds, Avg time per video: 37.7864 seconds
+Processed videos 81/206
+Time passed: 3058.5833 seconds, Avg time per video: 37.7603 seconds
+Processed videos 82/206
+Time passed: 3099.8225 seconds, Avg time per video: 37.8027 seconds
+Processed videos 83/206
+Time passed: 3143.2064 seconds, Avg time per video: 37.8700 seconds
+Processed videos 84/206
+Time passed: 3179.8164 seconds, Avg time per video: 37.8550 seconds
+Processed videos 85/206
+Time passed: 3217.3836 seconds, Avg time per video: 37.8516 seconds
+Processed videos 86/206
+Time passed: 3257.1755 seconds, Avg time per video: 37.8741 seconds
+Processed videos 87/206
+Time passed: 3296.4628 seconds, Avg time per video: 37.8904 seconds
+Processed videos 88/206
+Time passed: 3336.3079 seconds, Avg time per video: 37.9126 seconds
+Processed videos 89/206
+Time passed: 3381.6066 seconds, Avg time per video: 37.9956 seconds
+Processed videos 90/206
+Time passed: 3419.2500 seconds, Avg time per video: 37.9917 seconds
+Processed videos 91/206
+Time passed: 3455.1800 seconds, Avg time per video: 37.9690 seconds
+Processed videos 92/206
+Time passed: 3505.8397 seconds, Avg time per video: 38.1070 seconds
+Processed videos 93/206
+Time passed: 3550.0868 seconds, Avg time per video: 38.1730 seconds
+Processed videos 94/206
+Time passed: 3591.6729 seconds, Avg time per video: 38.2093 seconds
+Processed videos 95/206
+Time passed: 3626.4543 seconds, Avg time per video: 38.1732 seconds
+Processed videos 96/206
+Time passed: 3661.4294 seconds, Avg time per video: 38.1399 seconds
+Processed videos 97/206
+Time passed: 3696.3532 seconds, Avg time per video: 38.1067 seconds
+Processed videos 98/206
+Time passed: 3735.0357 seconds, Avg time per video: 38.1126 seconds
+Processed videos 99/206
+Time passed: 3770.2996 seconds, Avg time per video: 38.0838 seconds
+Processed videos 100/206
+Time passed: 3812.3993 seconds, Avg time per video: 38.1240 seconds
+Processed videos 101/206
+Time passed: 3849.1687 seconds, Avg time per video: 38.1106 seconds
+Processed videos 102/206
+Time passed: 3881.9799 seconds, Avg time per video: 38.0586 seconds
+Processed videos 103/206
+Time passed: 3917.1684 seconds, Avg time per video: 38.0308 seconds
+Processed videos 104/206
+Time passed: 3951.9912 seconds, Avg time per video: 37.9999 seconds
+Processed videos 105/206
+Time passed: 3987.4920 seconds, Avg time per video: 37.9761 seconds
+Processed videos 106/206
+Time passed: 4022.3423 seconds, Avg time per video: 37.9466 seconds
+Processed videos 107/206
+Time passed: 4058.9348 seconds, Avg time per video: 37.9340 seconds
+Processed videos 108/206
+Time passed: 4096.3862 seconds, Avg time per video: 37.9295 seconds
+Processed videos 109/206
+Time passed: 4138.8907 seconds, Avg time per video: 37.9715 seconds
+Processed videos 110/206
+Time passed: 4175.6506 seconds, Avg time per video: 37.9605 seconds
+Processed videos 111/206
+Time passed: 4203.4082 seconds, Avg time per video: 37.8685 seconds
+Processed videos 112/206
+Time passed: 4237.3713 seconds, Avg time per video: 37.8337 seconds
+Processed videos 113/206
+Time passed: 4272.2521 seconds, Avg time per video: 37.8075 seconds
+Processed videos 114/206
+Time passed: 4318.9794 seconds, Avg time per video: 37.8858 seconds
+Processed videos 115/206
+Time passed: 4362.9993 seconds, Avg time per video: 37.9391 seconds
+Processed videos 116/206
+Time passed: 4391.6015 seconds, Avg time per video: 37.8586 seconds
+Processed videos 117/206
+Time passed: 4430.9600 seconds, Avg time per video: 37.8715 seconds
+Processed videos 118/206
+Time passed: 4465.1826 seconds, Avg time per video: 37.8405 seconds
+Processed videos 119/206
+Time passed: 4506.7051 seconds, Avg time per video: 37.8715 seconds
+Processed videos 120/206
+Time passed: 4550.5623 seconds, Avg time per video: 37.9214 seconds
+Processed videos 121/206
+Time passed: 4595.2272 seconds, Avg time per video: 37.9771 seconds
+Processed videos 122/206
+Time passed: 4636.4636 seconds, Avg time per video: 38.0038 seconds
+Processed videos 123/206
+Time passed: 4684.3842 seconds, Avg time per video: 38.0844 seconds
+Processed videos 124/206
+Time passed: 4719.9751 seconds, Avg time per video: 38.0643 seconds
+Processed videos 125/206
+Time passed: 4754.9997 seconds, Avg time per video: 38.0400 seconds
+Processed videos 126/206
+Time passed: 4784.1981 seconds, Avg time per video: 37.9698 seconds
+Processed videos 127/206
+Time passed: 4831.4469 seconds, Avg time per video: 38.0429 seconds
+Processed videos 128/206
+Time passed: 4866.0268 seconds, Avg time per video: 38.0158 seconds
+Processed videos 129/206
+Time passed: 4904.3997 seconds, Avg time per video: 38.0186 seconds
+Processed videos 130/206
+Time passed: 4947.5093 seconds, Avg time per video: 38.0578 seconds
+Processed videos 131/206
+Time passed: 4985.4294 seconds, Avg time per video: 38.0567 seconds
+Processed videos 132/206
+Time passed: 5031.9424 seconds, Avg time per video: 38.1208 seconds
+Processed videos 133/206
+Time passed: 5066.8841 seconds, Avg time per video: 38.0969 seconds
+Processed videos 134/206
+Time passed: 5112.9999 seconds, Avg time per video: 38.1567 seconds
+Processed videos 135/206
+Time passed: 5159.6435 seconds, Avg time per video: 38.2196 seconds
+Processed videos 136/206
+Time passed: 5199.2003 seconds, Avg time per video: 38.2294 seconds
+Processed videos 137/206
+Time passed: 5241.8437 seconds, Avg time per video: 38.2616 seconds
+Processed videos 138/206
+Time passed: 5289.2395 seconds, Avg time per video: 38.3278 seconds
+Processed videos 139/206
+Time passed: 5326.8739 seconds, Avg time per video: 38.3228 seconds
+Processed videos 140/206
+Time passed: 5363.1020 seconds, Avg time per video: 38.3079 seconds
+Processed videos 141/206
+Time passed: 5399.0931 seconds, Avg time per video: 38.2914 seconds
+Processed videos 142/206
+Time passed: 5443.2840 seconds, Avg time per video: 38.3330 seconds
+Processed videos 143/206
+Time passed: 5492.2893 seconds, Avg time per video: 38.4076 seconds
+Processed videos 144/206
+Time passed: 5530.8917 seconds, Avg time per video: 38.4090 seconds
+Processed videos 145/206
+Time passed: 5566.9676 seconds, Avg time per video: 38.3929 seconds
+Processed videos 146/206
+Time passed: 5606.4607 seconds, Avg time per video: 38.4004 seconds
+Processed videos 147/206
+Time passed: 5641.7313 seconds, Avg time per video: 38.3791 seconds
+Processed videos 148/206
+Time passed: 5675.6955 seconds, Avg time per video: 38.3493 seconds
+Processed videos 149/206
+Time passed: 5720.9922 seconds, Avg time per video: 38.3959 seconds
+Processed videos 150/206
+Time passed: 5756.3295 seconds, Avg time per video: 38.3755 seconds
+Processed videos 151/206
+Time passed: 5791.4197 seconds, Avg time per video: 38.3538 seconds
+Processed videos 152/206
+Time passed: 5830.7983 seconds, Avg time per video: 38.3605 seconds
+Processed videos 153/206
+Time passed: 5865.2691 seconds, Avg time per video: 38.3351 seconds
+Processed videos 154/206
+Time passed: 5906.2839 seconds, Avg time per video: 38.3525 seconds
+Processed videos 155/206
+Time passed: 5949.1506 seconds, Avg time per video: 38.3816 seconds
+Processed videos 156/206
+Time passed: 5993.9503 seconds, Avg time per video: 38.4228 seconds
+Processed videos 157/206
+Time passed: 6031.1791 seconds, Avg time per video: 38.4152 seconds
+Processed videos 158/206
+Time passed: 6059.3447 seconds, Avg time per video: 38.3503 seconds
+Processed videos 159/206
+Time passed: 6103.4395 seconds, Avg time per video: 38.3864 seconds
+Processed videos 160/206
+Time passed: 6141.1282 seconds, Avg time per video: 38.3821 seconds
+Processed videos 161/206
+Time passed: 6175.8868 seconds, Avg time per video: 38.3595 seconds
+Processed videos 162/206
+Time passed: 6211.0805 seconds, Avg time per video: 38.3400 seconds
+Processed videos 163/206
+Time passed: 6250.4356 seconds, Avg time per video: 38.3462 seconds
+Processed videos 164/206
+Time passed: 6293.4930 seconds, Avg time per video: 38.3750 seconds
+Processed videos 165/206
+Time passed: 6332.7585 seconds, Avg time per video: 38.3804 seconds
+Processed videos 166/206
+Time passed: 6375.9851 seconds, Avg time per video: 38.4095 seconds
+Processed videos 167/206
+Time passed: 6428.2879 seconds, Avg time per video: 38.4927 seconds
+Processed videos 168/206
+Time passed: 6467.9100 seconds, Avg time per video: 38.4995 seconds
+Processed videos 169/206
+Time passed: 6509.9094 seconds, Avg time per video: 38.5202 seconds
+Processed videos 170/206
+Time passed: 6548.2171 seconds, Avg time per video: 38.5189 seconds
+Processed videos 171/206
+Time passed: 6586.2879 seconds, Avg time per video: 38.5163 seconds
+Processed videos 172/206
+Time passed: 6621.1522 seconds, Avg time per video: 38.4951 seconds
+Processed videos 173/206
+Time passed: 6651.2177 seconds, Avg time per video: 38.4463 seconds
+Processed videos 174/206
+Time passed: 6677.9344 seconds, Avg time per video: 38.3789 seconds
+Processed videos 175/206
+Time passed: 6712.6625 seconds, Avg time per video: 38.3581 seconds
+Processed videos 176/206
+Time passed: 6748.3191 seconds, Avg time per video: 38.3427 seconds
+Processed videos 177/206
+Time passed: 6794.1525 seconds, Avg time per video: 38.3850 seconds
+Processed videos 178/206
+Time passed: 6828.6520 seconds, Avg time per video: 38.3632 seconds
+Processed videos 179/206
+Time passed: 6873.2536 seconds, Avg time per video: 38.3981 seconds
+Processed videos 180/206
+Time passed: 6907.8686 seconds, Avg time per video: 38.3770 seconds
+Processed videos 181/206
+Time passed: 6944.2517 seconds, Avg time per video: 38.3660 seconds
+Processed videos 182/206
+Time passed: 6981.7639 seconds, Avg time per video: 38.3613 seconds
+Processed videos 183/206
+Time passed: 7016.7526 seconds, Avg time per video: 38.3429 seconds
+Processed videos 184/206
+Time passed: 7064.8016 seconds, Avg time per video: 38.3957 seconds
+Processed videos 185/206
+Time passed: 7097.7846 seconds, Avg time per video: 38.3664 seconds
+Processed videos 186/206
+Time passed: 7134.9770 seconds, Avg time per video: 38.3601 seconds
+Processed videos 187/206
+Time passed: 7170.9644 seconds, Avg time per video: 38.3474 seconds
+Processed videos 188/206
+Time passed: 7218.5220 seconds, Avg time per video: 38.3964 seconds
+Processed videos 189/206
+Time passed: 7256.4487 seconds, Avg time per video: 38.3939 seconds
+Processed videos 190/206
+Time passed: 7292.2111 seconds, Avg time per video: 38.3801 seconds
+Processed videos 191/206
+Time passed: 7332.9277 seconds, Avg time per video: 38.3923 seconds
+Processed videos 192/206
+Time passed: 7369.7927 seconds, Avg time per video: 38.3843 seconds
+Processed videos 193/206
+Time passed: 7414.9254 seconds, Avg time per video: 38.4193 seconds
+Processed videos 194/206
+Time passed: 7451.7250 seconds, Avg time per video: 38.4110 seconds
+Processed videos 195/206
+Time passed: 7487.6497 seconds, Avg time per video: 38.3982 seconds
+Processed videos 196/206
+Time passed: 7522.0483 seconds, Avg time per video: 38.3778 seconds
+Processed videos 197/206
+Time passed: 7557.8299 seconds, Avg time per video: 38.3646 seconds
+Processed videos 198/206
+Time passed: 7593.0018 seconds, Avg time per video: 38.3485 seconds
+Processed videos 199/206
+Time passed: 7626.7492 seconds, Avg time per video: 38.3254 seconds
+Processed videos 200/206
+Time passed: 7662.2315 seconds, Avg time per video: 38.3112 seconds
+Processed videos 201/206
+Time passed: 7698.2211 seconds, Avg time per video: 38.2996 seconds
+Processed videos 202/206
+Time passed: 7748.4450 seconds, Avg time per video: 38.3586 seconds
+Processed videos 203/206
+Time passed: 7786.6846 seconds, Avg time per video: 38.3581 seconds
+Processed videos 204/206
+Time passed: 7835.2229 seconds, Avg time per video: 38.4080 seconds
+Processed videos 205/206
+Time passed: 7870.8601 seconds, Avg time per video: 38.3944 seconds
+Processed videos 206/206
+Time passed: 7906.2155 seconds, Avg time per video: 38.3797 seconds
+13739.59user 1547.29system 3:29:53elapsed 121%CPU (0avgtext+0avgdata 2426612maxresident)k
+3350698inputs+303712outputs (22major+97915866minor)pagefaults 0swaps

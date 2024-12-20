@@ -1,0 +1,1703 @@
+nohup: ignoring input
+running eval of BURST
++ EXP_DIR=exps
++ PY_ARGS=
++ WANDB_NAME=PROB_V1
++ PY_ARGS=
++ python -u main_open_world.py --predict_custom --burst_subdataset AVA --burst_subset val --detections_path /home/uig93971/src/Hyp-OW-burst-eval/detections --burst_annot_path /home/uig93971/src/data/TAO/burst_annotations --tao_frames_path /home/uig93971/src/data/TAO/frames --dataset HIERARCHICAL --PREV_INTRODUCED_CLS 80 --CUR_INTRODUCED_CLS 0 --train_set '' --test_set burst_val_test --epochs 191 --lr_drop 35 --model_type hypow --obj_loss_coef 8e-4 --obj_temp 1.3 --pretrain exps/hypow_t4_ft_hierarchical_split.pth --eval --wandb_project '' --wandb_name PROB_V1_t1 --wandb_project '' --lr_drop 40 --num_queries 100 --logging_freq 40 --use_focal_cls --save_buffer --relabel --eval --epochs 50 --clip_r 1.0 --use_hyperbolic --unknown_weight 0.1 --hyperbolic_c 0.1 --hyperbolic_temp 0.2 --samples_per_category 1 --hyperbolic_coeff 0.05 --checkpoint_period 10 --start_relabelling 0 --emb_per_class 10 --all_background --empty_weight 0.1 --use_max_uperbound --family_regularizer --family_hyperbolic_coeff 0.02
+{'OWDETR': ('aeroplane', 'bicycle', 'bird', 'boat', 'bus', 'car', 'cat', 'cow', 'dog', 'horse', 'motorbike', 'sheep', 'train', 'elephant', 'bear', 'zebra', 'giraffe', 'truck', 'person', 'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'chair', 'diningtable', 'pottedplant', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'bed', 'toilet', 'sofa', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'tvmonitor', 'bottle', 'unknown'), 'TOWOD': ('aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor', 'truck', 'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'bed', 'toilet', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'unknown'), 'VOC2007': ('aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor', 'truck', 'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'bed', 'toilet', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'unknown'), 'HIERARCHICAL': ('bicycle', 'car', 'traffic light', 'fire hydrant', 'bird', 'cat', 'dog', 'backpack', 'frisbee', 'skis', 'bottle', 'wine glass', 'banana', 'apple', 'chair', 'sofa', 'tvmonitor', 'microwave', 'oven', 'book', 'person', 'motorbike', 'aeroplane', 'stop sign', 'horse', 'sheep', 'umbrella', 'snowboard', 'sports ball', 'cup', 'sandwich', 'orange', 'broccoli', 'pottedplant', 'bed', 'laptop', 'mouse', 'toaster', 'clock', 'vase', 'bus', 'train', 'parking meter', 'cow', 'elephant', 'bear', 'handbag', 'kite', 'baseball bat', 'baseball glove', 'fork', 'knife', 'carrot', 'hot dog', 'diningtable', 'remote', 'keyboard', 'sink', 'scissors', 'teddy bear', 'truck', 'boat', 'bench', 'zebra', 'giraffe', 'tie', 'suitcase', 'skateboard', 'surfboard', 'tennis racket', 'spoon', 'bowl', 'pizza', 'donut', 'cake', 'toilet', 'cell phone', 'refrigerator', 'hair drier', 'toothbrush', 'unknown'), 'BURST_VAL': ('aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor', 'person', 'motorbike', 'aeroplane', 'stop sign', 'horse', 'sheep', 'umbrella', 'snowboard', 'sports ball', 'cup', 'sandwich', 'orange', 'broccoli', 'pottedplant', 'bed', 'laptop', 'mouse', 'toaster', 'clock', 'vase', 'bus', 'train', 'parking meter', 'cow', 'elephant', 'bear', 'handbag', 'kite', 'baseball bat', 'baseball glove', 'fork', 'knife', 'carrot', 'hot dog', 'diningtable', 'remote', 'keyboard', 'sink', 'scissors', 'teddy bear', 'truck', 'boat', 'bench', 'zebra', 'giraffe', 'tie', 'suitcase', 'skateboard', 'surfboard', 'tennis racket', 'spoon', 'bowl', 'pizza', 'donut', 'cake', 'toilet', 'cell phone', 'refrigerator', 'hair drier', 'toothbrush', 'unknown')}
+('aeroplane', 'bicycle', 'bird', 'boat', 'bus', 'car', 'cat', 'cow', 'dog', 'horse', 'motorbike', 'sheep', 'train', 'elephant', 'bear', 'zebra', 'giraffe', 'truck', 'person', 'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'chair', 'diningtable', 'pottedplant', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'bed', 'toilet', 'sofa', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'tvmonitor', 'bottle', 'unknown')
+Not using distributed mode
+git:
+  sha: ea93b7477ef452cef37abcc97d935ecbb4406b82, status: has uncommited changes, branch: main
+
+Namespace(lr=0.0002, lr_backbone_names=['backbone.0'], lr_backbone=2e-05, lr_linear_proj_names=['reference_points', 'sampling_offsets'], lr_linear_proj_mult=0.1, batch_size=10, weight_decay=0.0001, epochs=50, lr_drop=40, lr_drop_epochs=None, clip_max_norm=0.1, sgd=False, with_box_refine=False, two_stage=False, masks=False, backbone='dino_resnet50', frozen_weights=None, dilation=False, position_embedding='sine', position_embedding_scale=6.283185307179586, num_feature_levels=4, enc_layers=6, dec_layers=6, dim_feedforward=1024, hidden_dim=256, dropout=0.1, nheads=8, num_queries=100, dec_n_points=4, enc_n_points=4, aux_loss=True, set_cost_class=2, set_cost_bbox=5, set_cost_giou=2, cls_loss_coef=2, bbox_loss_coef=5, giou_loss_coef=2, focal_alpha=0.25, coco_panoptic_path=None, remove_difficult=False, output_dir='', device='cuda', seed=42, resume='', start_epoch=0, eval=True, viz=False, eval_every=5, num_workers=3, cache_mode=False, PREV_INTRODUCED_CLS=80, CUR_INTRODUCED_CLS=0, unmatched_boxes=True, top_unk=5, featdim=1024, invalid_cls_logits=False, NC_branch=True, bbox_thresh=0.3, pretrain='exps/hypow_t4_ft_hierarchical_split.pth', nc_loss_coef=2, train_set='', test_set='burst_val_test', num_classes=81, nc_epoch=9, dataset='HIERARCHICAL', data_root='./data/OWOD', unk_conf_w=1.0, model_type='hypow', wandb_name='PROB_V1_t1', wandb_project='', obj_loss_coef=0.0008, obj_temp=1.3, freeze_prob_model=False, num_inst_per_class=50, exemplar_replay_selection=False, exemplar_replay_max_length=10000000000.0, exemplar_replay_dir='', exemplar_replay_prev_file='', exemplar_replay_cur_file='', exemplar_replay_random=False, debug_epoch=False, debug_eval=False, use_2007=1, checkpoint_period=10, emb_per_class=10, momentum=0.1, logging_freq=40, eval_during_training=500, start_relabelling=0, all_background=True, relabel=True, ablation=False, layer_option=0, double_eval=False, use_hyperbolic=True, hyperbolic_coeff=0.05, family_hyperbolic_coeff=0.02, samples_per_category=1, hyperbolic_temp=0.2, hyperbolic_c=0.1, clip_r=1.0, update_freq=50, family_regularizer=True, save_objectness=False, hyperbolic_mean=False, unknown_weight=0.1, use_focal_cls=True, empty_weight=0.1, ablation_save_objectness=False, ablation_save_embedding=False, ablation_cosine=False, use_max_uperbound=True, collect_buffer=False, save_buffer=True, load_buffer=False, buffer_dir='', relevant_matrix_dir='', save_eval_det_file='', predict_custom=True, burst_subdataset='AVA', burst_subset='val', video_id=None, detections_path='/home/uig93971/src/Hyp-OW-burst-eval/detections', burst_annot_path='/home/uig93971/src/data/TAO/burst_annotations', tao_frames_path='/home/uig93971/src/data/TAO/frames', distributed=False)
+Invalid class range: []
+DINO resnet50
+/home/uig93971/miniconda3/envs/hypow/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/home/uig93971/miniconda3/envs/hypow/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+running with exemplar_replay_selection
+DeformableDETR(
+  (transformer): DeformableTransformer(
+    (encoder): DeformableTransformerEncoder(
+      (layers): ModuleList(
+        (0): DeformableTransformerEncoderLayer(
+          (self_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (1): DeformableTransformerEncoderLayer(
+          (self_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): DeformableTransformerEncoderLayer(
+          (self_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (3): DeformableTransformerEncoderLayer(
+          (self_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (4): DeformableTransformerEncoderLayer(
+          (self_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): DeformableTransformerEncoderLayer(
+          (self_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+    (decoder): DeformableTransformerDecoder(
+      (layers): ModuleList(
+        (0): DeformableTransformerDecoderLayer(
+          (cross_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout4): Dropout(p=0.1, inplace=False)
+          (norm3): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (1): DeformableTransformerDecoderLayer(
+          (cross_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout4): Dropout(p=0.1, inplace=False)
+          (norm3): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): DeformableTransformerDecoderLayer(
+          (cross_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout4): Dropout(p=0.1, inplace=False)
+          (norm3): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (3): DeformableTransformerDecoderLayer(
+          (cross_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout4): Dropout(p=0.1, inplace=False)
+          (norm3): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (4): DeformableTransformerDecoderLayer(
+          (cross_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout4): Dropout(p=0.1, inplace=False)
+          (norm3): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): DeformableTransformerDecoderLayer(
+          (cross_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout4): Dropout(p=0.1, inplace=False)
+          (norm3): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+    (reference_points): Linear(in_features=256, out_features=2, bias=True)
+  )
+  (manifold): PoincareBall manifold
+  (tpc): ToPoincare(c=0.1, train_x=False)
+  (class_embed): ModuleList(
+    (0): Linear(in_features=256, out_features=81, bias=True)
+    (1): Linear(in_features=256, out_features=81, bias=True)
+    (2): Linear(in_features=256, out_features=81, bias=True)
+    (3): Linear(in_features=256, out_features=81, bias=True)
+    (4): Linear(in_features=256, out_features=81, bias=True)
+    (5): Linear(in_features=256, out_features=81, bias=True)
+  )
+  (bbox_embed): ModuleList(
+    (0): MLP(
+      (layers): ModuleList(
+        (0): Linear(in_features=256, out_features=256, bias=True)
+        (1): Linear(in_features=256, out_features=256, bias=True)
+        (2): Linear(in_features=256, out_features=4, bias=True)
+      )
+    )
+    (1): MLP(
+      (layers): ModuleList(
+        (0): Linear(in_features=256, out_features=256, bias=True)
+        (1): Linear(in_features=256, out_features=256, bias=True)
+        (2): Linear(in_features=256, out_features=4, bias=True)
+      )
+    )
+    (2): MLP(
+      (layers): ModuleList(
+        (0): Linear(in_features=256, out_features=256, bias=True)
+        (1): Linear(in_features=256, out_features=256, bias=True)
+        (2): Linear(in_features=256, out_features=4, bias=True)
+      )
+    )
+    (3): MLP(
+      (layers): ModuleList(
+        (0): Linear(in_features=256, out_features=256, bias=True)
+        (1): Linear(in_features=256, out_features=256, bias=True)
+        (2): Linear(in_features=256, out_features=4, bias=True)
+      )
+    )
+    (4): MLP(
+      (layers): ModuleList(
+        (0): Linear(in_features=256, out_features=256, bias=True)
+        (1): Linear(in_features=256, out_features=256, bias=True)
+        (2): Linear(in_features=256, out_features=4, bias=True)
+      )
+    )
+    (5): MLP(
+      (layers): ModuleList(
+        (0): Linear(in_features=256, out_features=256, bias=True)
+        (1): Linear(in_features=256, out_features=256, bias=True)
+        (2): Linear(in_features=256, out_features=4, bias=True)
+      )
+    )
+  )
+  (query_embed): Embedding(100, 512)
+  (input_proj): ModuleList(
+    (0): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): GroupNorm(32, 256, eps=1e-05, affine=True)
+    )
+    (1): Sequential(
+      (0): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): GroupNorm(32, 256, eps=1e-05, affine=True)
+    )
+    (2): Sequential(
+      (0): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): GroupNorm(32, 256, eps=1e-05, affine=True)
+    )
+    (3): Sequential(
+      (0): Conv2d(2048, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (1): GroupNorm(32, 256, eps=1e-05, affine=True)
+    )
+  )
+  (backbone): Joiner(
+    (0): Backbone(
+      (body): IntermediateLayerGetter(
+        (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+        (bn1): FrozenBatchNorm2d()
+        (relu): ReLU(inplace=True)
+        (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+        (layer1): Sequential(
+          (0): Bottleneck(
+            (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+            (downsample): Sequential(
+              (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): FrozenBatchNorm2d()
+            )
+          )
+          (1): Bottleneck(
+            (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (2): Bottleneck(
+            (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+        )
+        (layer2): Sequential(
+          (0): Bottleneck(
+            (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+            (downsample): Sequential(
+              (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+              (1): FrozenBatchNorm2d()
+            )
+          )
+          (1): Bottleneck(
+            (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (2): Bottleneck(
+            (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (3): Bottleneck(
+            (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+        )
+        (layer3): Sequential(
+          (0): Bottleneck(
+            (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+            (downsample): Sequential(
+              (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+              (1): FrozenBatchNorm2d()
+            )
+          )
+          (1): Bottleneck(
+            (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (2): Bottleneck(
+            (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (3): Bottleneck(
+            (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (4): Bottleneck(
+            (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (5): Bottleneck(
+            (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+        )
+        (layer4): Sequential(
+          (0): Bottleneck(
+            (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+            (downsample): Sequential(
+              (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(2, 2), bias=False)
+              (1): FrozenBatchNorm2d()
+            )
+          )
+          (1): Bottleneck(
+            (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (2): Bottleneck(
+            (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+        )
+      )
+    )
+    (1): PositionEmbeddingSine()
+  )
+)
+number of params: 39742295
+HIERARCHICAL
+
+burst_val_test
+None
+Dataset OWDetection
+    Number of datapoints: 13931
+    Root location: ./data/OWOD
+    [['val'], Compose(
+    <datasets.transforms.RandomResize object at 0x7f0b76522470>
+    Compose(
+    <datasets.transforms.ToTensor object at 0x7f0b7663c0d0>
+    <datasets.transforms.Normalize object at 0x7f0b7663c7f0>
+)
+)]
+Initialized from the pre-training model
+<All keys matched successfully>
+Running inference on BURST dataset
+/home/uig93971/src/Hyp-OW-burst-eval/models/position_encoding.py:49: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  dim_t = self.temperature ** (2 * (dim_t // 2) / self.num_pos_feats)
+/home/uig93971/miniconda3/envs/hypow/lib/python3.10/site-packages/torch/functional.py:478: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2894.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/uig93971/src/Hyp-OW-burst-eval/models/hypow_deformable_detr.py:1176: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  topk_boxes = topk_indexes // out_logits.shape[2]
+Processed videos 1/127
+Time passed: 220.8695 seconds, Avg time per video: 220.8695 seconds
+Processed videos 2/127
+Time passed: 456.7163 seconds, Avg time per video: 228.3581 seconds
+Processed videos 3/127
+Time passed: 632.7811 seconds, Avg time per video: 210.9270 seconds
+Processed videos 4/127
+Time passed: 814.4251 seconds, Avg time per video: 203.6063 seconds
+Processed videos 5/127
+Time passed: 956.1471 seconds, Avg time per video: 191.2294 seconds
+Processed videos 6/127
+Time passed: 1152.7129 seconds, Avg time per video: 192.1188 seconds
+Processed videos 7/127
+Time passed: 1342.9532 seconds, Avg time per video: 191.8505 seconds
+Processed videos 8/127
+Time passed: 1531.0427 seconds, Avg time per video: 191.3803 seconds
+Processed videos 9/127
+Time passed: 1717.1066 seconds, Avg time per video: 190.7896 seconds
+Processed videos 10/127
+Time passed: 1938.3517 seconds, Avg time per video: 193.8352 seconds
+Processed videos 11/127
+Time passed: 2097.9855 seconds, Avg time per video: 190.7260 seconds
+Processed videos 12/127
+Time passed: 2263.7040 seconds, Avg time per video: 188.6420 seconds
+Processed videos 13/127
+Time passed: 2414.2864 seconds, Avg time per video: 185.7143 seconds
+Processed videos 14/127
+Time passed: 2605.5897 seconds, Avg time per video: 186.1136 seconds
+Processed videos 15/127
+Time passed: 2776.0109 seconds, Avg time per video: 185.0674 seconds
+Processed videos 16/127
+Time passed: 2974.7502 seconds, Avg time per video: 185.9219 seconds
+Processed videos 17/127
+Time passed: 3115.8182 seconds, Avg time per video: 183.2834 seconds
+Processed videos 18/127
+Time passed: 3293.1027 seconds, Avg time per video: 182.9501 seconds
+Processed videos 19/127
+Time passed: 3481.0880 seconds, Avg time per video: 183.2152 seconds
+Processed videos 20/127
+Time passed: 3646.9067 seconds, Avg time per video: 182.3453 seconds
+Processed videos 21/127
+Time passed: 3836.1147 seconds, Avg time per video: 182.6721 seconds
+Processed videos 22/127
+Time passed: 3999.7657 seconds, Avg time per video: 181.8075 seconds
+Processed videos 23/127
+Time passed: 4182.1221 seconds, Avg time per video: 181.8314 seconds
+Processed videos 24/127
+Time passed: 4357.9501 seconds, Avg time per video: 181.5813 seconds
+Processed videos 25/127
+Time passed: 4523.8798 seconds, Avg time per video: 180.9552 seconds
+Processed videos 26/127
+Time passed: 4701.0551 seconds, Avg time per video: 180.8098 seconds
+Processed videos 27/127
+Time passed: 4897.5341 seconds, Avg time per video: 181.3902 seconds
+Processed videos 28/127
+Time passed: 5050.7088 seconds, Avg time per video: 180.3825 seconds
+Processed videos 29/127
+Time passed: 5201.8659 seconds, Avg time per video: 179.3747 seconds
+Processed videos 30/127
+Time passed: 5397.0961 seconds, Avg time per video: 179.9032 seconds
+Processed videos 31/127
+Time passed: 5593.9822 seconds, Avg time per video: 180.4510 seconds
+Processed videos 32/127
+Time passed: 5777.4739 seconds, Avg time per video: 180.5461 seconds
+Processed videos 33/127
+Time passed: 5999.5795 seconds, Avg time per video: 181.8054 seconds
+Processed videos 34/127
+Time passed: 6189.2623 seconds, Avg time per video: 182.0371 seconds
+Processed videos 35/127
+Time passed: 6374.0552 seconds, Avg time per video: 182.1159 seconds
+Processed videos 36/127
+Time passed: 6535.6365 seconds, Avg time per video: 181.5455 seconds
+Processed videos 37/127
+Time passed: 6756.5276 seconds, Avg time per video: 182.6089 seconds
+Processed videos 38/127
+Time passed: 6978.1879 seconds, Avg time per video: 183.6365 seconds
+Processed videos 39/127
+Time passed: 7165.0658 seconds, Avg time per video: 183.7196 seconds
+Processed videos 40/127
+Time passed: 7402.4162 seconds, Avg time per video: 185.0604 seconds
+Processed videos 41/127
+Time passed: 7587.2136 seconds, Avg time per video: 185.0540 seconds
+Processed videos 42/127
+Time passed: 7734.0750 seconds, Avg time per video: 184.1446 seconds
+Processed videos 43/127
+Time passed: 7930.9132 seconds, Avg time per video: 184.4398 seconds
+Processed videos 44/127
+Time passed: 8085.6576 seconds, Avg time per video: 183.7649 seconds
+Processed videos 45/127
+Time passed: 8273.0604 seconds, Avg time per video: 183.8458 seconds
+Processed videos 46/127
+Time passed: 8470.2308 seconds, Avg time per video: 184.1355 seconds
+Processed videos 47/127
+Time passed: 8667.0969 seconds, Avg time per video: 184.4063 seconds
+Processed videos 48/127
+Time passed: 8864.9388 seconds, Avg time per video: 184.6862 seconds
+Processed videos 49/127
+Time passed: 9060.5163 seconds, Avg time per video: 184.9085 seconds
+Processed videos 50/127
+Time passed: 9281.5802 seconds, Avg time per video: 185.6316 seconds
+Processed videos 51/127
+Time passed: 9469.6038 seconds, Avg time per video: 185.6785 seconds
+Processed videos 52/127
+Time passed: 9629.9384 seconds, Avg time per video: 185.1911 seconds
+Processed videos 53/127
+Time passed: 9790.6452 seconds, Avg time per video: 184.7292 seconds
+Processed videos 54/127
+Time passed: 9976.0096 seconds, Avg time per video: 184.7409 seconds
+Processed videos 55/127
+Time passed: 10146.3079 seconds, Avg time per video: 184.4783 seconds
+Processed videos 56/127
+Time passed: 10334.6681 seconds, Avg time per video: 184.5476 seconds
+Processed videos 57/127
+Time passed: 10523.3201 seconds, Avg time per video: 184.6197 seconds
+Processed videos 58/127
+Time passed: 10693.7687 seconds, Avg time per video: 184.3753 seconds
+Processed videos 59/127
+Time passed: 10850.4641 seconds, Avg time per video: 183.9062 seconds
+Processed videos 60/127
+Time passed: 11021.1731 seconds, Avg time per video: 183.6862 seconds
+Processed videos 61/127
+Time passed: 11217.3056 seconds, Avg time per video: 183.8903 seconds
+Processed videos 62/127
+Time passed: 11371.4338 seconds, Avg time per video: 183.4102 seconds
+Processed videos 63/127
+Time passed: 11537.8460 seconds, Avg time per video: 183.1404 seconds
+Processed videos 64/127
+Time passed: 11722.6433 seconds, Avg time per video: 183.1663 seconds
+Processed videos 65/127
+Time passed: 11888.9361 seconds, Avg time per video: 182.9067 seconds
+Processed videos 66/127
+Time passed: 12034.0020 seconds, Avg time per video: 182.3334 seconds
+Processed videos 67/127
+Time passed: 12195.0913 seconds, Avg time per video: 182.0163 seconds
+Processed videos 68/127
+Time passed: 12363.8631 seconds, Avg time per video: 181.8215 seconds
+Processed videos 69/127
+Time passed: 12559.8849 seconds, Avg time per video: 182.0273 seconds
+Processed videos 70/127
+Time passed: 12756.1993 seconds, Avg time per video: 182.2314 seconds
+Processed videos 71/127
+Time passed: 12952.2822 seconds, Avg time per video: 182.4265 seconds
+Processed videos 72/127
+Time passed: 13148.4375 seconds, Avg time per video: 182.6172 seconds
+Processed videos 73/127
+Time passed: 13365.4966 seconds, Avg time per video: 183.0890 seconds
+Processed videos 74/127
+Time passed: 13561.7518 seconds, Avg time per video: 183.2669 seconds
+Processed videos 75/127
+Time passed: 13784.8550 seconds, Avg time per video: 183.7981 seconds
+Processed videos 76/127
+Time passed: 13983.8548 seconds, Avg time per video: 183.9981 seconds
+Processed videos 77/127
+Time passed: 14179.5289 seconds, Avg time per video: 184.1497 seconds
+Processed videos 78/127
+Time passed: 14326.2029 seconds, Avg time per video: 183.6693 seconds
+Processed videos 79/127
+Time passed: 14522.4676 seconds, Avg time per video: 183.8287 seconds
+Processed videos 80/127
+Time passed: 14682.8547 seconds, Avg time per video: 183.5357 seconds
+Processed videos 81/127
+Time passed: 14876.3560 seconds, Avg time per video: 183.6587 seconds
+Processed videos 82/127
+Time passed: 15076.3270 seconds, Avg time per video: 183.8576 seconds
+Processed videos 83/127
+Time passed: 15312.0140 seconds, Avg time per video: 184.4821 seconds
+Processed videos 84/127
+Time passed: 15479.3033 seconds, Avg time per video: 184.2774 seconds
+Processed videos 85/127
+Time passed: 15667.8504 seconds, Avg time per video: 184.3277 seconds
+Processed videos 86/127
+Time passed: 15850.0401 seconds, Avg time per video: 184.3028 seconds
+Processed videos 87/127
+Time passed: 16038.6195 seconds, Avg time per video: 184.3519 seconds
+Processed videos 88/127
+Time passed: 16235.4927 seconds, Avg time per video: 184.4942 seconds
+Processed videos 89/127
+Time passed: 16399.6234 seconds, Avg time per video: 184.2654 seconds
+Processed videos 90/127
+Time passed: 16556.4834 seconds, Avg time per video: 183.9609 seconds
+Processed videos 91/127
+Time passed: 16744.4847 seconds, Avg time per video: 184.0053 seconds
+Processed videos 92/127
+Time passed: 16921.8511 seconds, Avg time per video: 183.9332 seconds
+Processed videos 93/127
+Time passed: 17100.3614 seconds, Avg time per video: 183.8749 seconds
+Processed videos 94/127
+Time passed: 17288.2788 seconds, Avg time per video: 183.9179 seconds
+Processed videos 95/127
+Time passed: 17484.6908 seconds, Avg time per video: 184.0494 seconds
+Processed videos 96/127
+Time passed: 17655.3506 seconds, Avg time per video: 183.9099 seconds
+Processed videos 97/127
+Time passed: 17876.7525 seconds, Avg time per video: 184.2964 seconds
+Processed videos 98/127
+Time passed: 18064.7478 seconds, Avg time per video: 184.3342 seconds
+Processed videos 99/127
+Time passed: 18260.3724 seconds, Avg time per video: 184.4482 seconds
+Processed videos 100/127
+Time passed: 18481.2125 seconds, Avg time per video: 184.8121 seconds
+Processed videos 101/127
+Time passed: 18635.1229 seconds, Avg time per video: 184.5062 seconds
+Processed videos 102/127
+Time passed: 18787.7127 seconds, Avg time per video: 184.1933 seconds
+Processed videos 103/127
+Time passed: 18976.2334 seconds, Avg time per video: 184.2353 seconds
+Processed videos 104/127
+Time passed: 19137.5469 seconds, Avg time per video: 184.0149 seconds
+Processed videos 105/127
+Time passed: 19298.9469 seconds, Avg time per video: 183.7995 seconds
+Processed videos 106/127
+Time passed: 19480.1969 seconds, Avg time per video: 183.7754 seconds
+Processed videos 107/127
+Time passed: 19634.2527 seconds, Avg time per video: 183.4977 seconds
+Processed videos 108/127
+Time passed: 19830.6160 seconds, Avg time per video: 183.6168 seconds
+Processed videos 109/127
+Time passed: 20018.7939 seconds, Avg time per video: 183.6587 seconds
+Processed videos 110/127
+Time passed: 20174.7250 seconds, Avg time per video: 183.4066 seconds
+Processed videos 111/127
+Time passed: 20355.8952 seconds, Avg time per video: 183.3864 seconds
+Processed videos 112/127
+Time passed: 20552.1410 seconds, Avg time per video: 183.5013 seconds
+Processed videos 113/127
+Time passed: 20732.5087 seconds, Avg time per video: 183.4735 seconds
+Processed videos 114/127
+Time passed: 20909.4125 seconds, Avg time per video: 183.4159 seconds
+Processed videos 115/127
+Time passed: 21106.5835 seconds, Avg time per video: 183.5355 seconds
+Processed videos 116/127
+Time passed: 21327.6106 seconds, Avg time per video: 183.8587 seconds
+Processed videos 117/127
+Time passed: 21488.3415 seconds, Avg time per video: 183.6610 seconds
+Processed videos 118/127
+Time passed: 21629.2938 seconds, Avg time per video: 183.2991 seconds
+Processed videos 119/127
+Time passed: 21815.8505 seconds, Avg time per video: 183.3265 seconds
+Processed videos 120/127
+Time passed: 22004.0864 seconds, Avg time per video: 183.3674 seconds
+Processed videos 121/127
+Time passed: 22191.7727 seconds, Avg time per video: 183.4031 seconds
+Processed videos 122/127
+Time passed: 22346.9521 seconds, Avg time per video: 183.1717 seconds
+Processed videos 123/127
+Time passed: 22498.9221 seconds, Avg time per video: 182.9181 seconds
+Processed videos 124/127
+Time passed: 22673.1167 seconds, Avg time per video: 182.8477 seconds
+Processed videos 125/127
+Time passed: 22858.6558 seconds, Avg time per video: 182.8692 seconds
+Processed videos 126/127
+Time passed: 23044.7868 seconds, Avg time per video: 182.8951 seconds
+Processed videos 127/127
+Time passed: 23218.4463 seconds, Avg time per video: 182.8224 seconds
++ PY_ARGS=
++ python -u main_open_world.py --predict_custom --burst_subdataset HACS --burst_subset val --detections_path /home/uig93971/src/Hyp-OW-burst-eval/detections --burst_annot_path /home/uig93971/src/data/TAO/burst_annotations --tao_frames_path /home/uig93971/src/data/TAO/frames --dataset HIERARCHICAL --PREV_INTRODUCED_CLS 80 --CUR_INTRODUCED_CLS 0 --train_set '' --test_set burst_val_test --epochs 191 --lr_drop 35 --model_type hypow --obj_loss_coef 8e-4 --obj_temp 1.3 --pretrain exps/hypow_t4_ft_hierarchical_split.pth --eval --wandb_project '' --wandb_name PROB_V1_t1 --wandb_project '' --lr_drop 40 --num_queries 100 --logging_freq 40 --use_focal_cls --save_buffer --relabel --eval --epochs 50 --clip_r 1.0 --use_hyperbolic --unknown_weight 0.1 --hyperbolic_c 0.1 --hyperbolic_temp 0.2 --samples_per_category 1 --hyperbolic_coeff 0.05 --checkpoint_period 10 --start_relabelling 0 --emb_per_class 10 --all_background --empty_weight 0.1 --use_max_uperbound --family_regularizer --family_hyperbolic_coeff 0.02
+{'OWDETR': ('aeroplane', 'bicycle', 'bird', 'boat', 'bus', 'car', 'cat', 'cow', 'dog', 'horse', 'motorbike', 'sheep', 'train', 'elephant', 'bear', 'zebra', 'giraffe', 'truck', 'person', 'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'chair', 'diningtable', 'pottedplant', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'bed', 'toilet', 'sofa', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'tvmonitor', 'bottle', 'unknown'), 'TOWOD': ('aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor', 'truck', 'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'bed', 'toilet', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'unknown'), 'VOC2007': ('aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor', 'truck', 'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'bed', 'toilet', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'unknown'), 'HIERARCHICAL': ('bicycle', 'car', 'traffic light', 'fire hydrant', 'bird', 'cat', 'dog', 'backpack', 'frisbee', 'skis', 'bottle', 'wine glass', 'banana', 'apple', 'chair', 'sofa', 'tvmonitor', 'microwave', 'oven', 'book', 'person', 'motorbike', 'aeroplane', 'stop sign', 'horse', 'sheep', 'umbrella', 'snowboard', 'sports ball', 'cup', 'sandwich', 'orange', 'broccoli', 'pottedplant', 'bed', 'laptop', 'mouse', 'toaster', 'clock', 'vase', 'bus', 'train', 'parking meter', 'cow', 'elephant', 'bear', 'handbag', 'kite', 'baseball bat', 'baseball glove', 'fork', 'knife', 'carrot', 'hot dog', 'diningtable', 'remote', 'keyboard', 'sink', 'scissors', 'teddy bear', 'truck', 'boat', 'bench', 'zebra', 'giraffe', 'tie', 'suitcase', 'skateboard', 'surfboard', 'tennis racket', 'spoon', 'bowl', 'pizza', 'donut', 'cake', 'toilet', 'cell phone', 'refrigerator', 'hair drier', 'toothbrush', 'unknown'), 'BURST_VAL': ('aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 'bus', 'car', 'cat', 'chair', 'cow', 'diningtable', 'dog', 'horse', 'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train', 'tvmonitor', 'person', 'motorbike', 'aeroplane', 'stop sign', 'horse', 'sheep', 'umbrella', 'snowboard', 'sports ball', 'cup', 'sandwich', 'orange', 'broccoli', 'pottedplant', 'bed', 'laptop', 'mouse', 'toaster', 'clock', 'vase', 'bus', 'train', 'parking meter', 'cow', 'elephant', 'bear', 'handbag', 'kite', 'baseball bat', 'baseball glove', 'fork', 'knife', 'carrot', 'hot dog', 'diningtable', 'remote', 'keyboard', 'sink', 'scissors', 'teddy bear', 'truck', 'boat', 'bench', 'zebra', 'giraffe', 'tie', 'suitcase', 'skateboard', 'surfboard', 'tennis racket', 'spoon', 'bowl', 'pizza', 'donut', 'cake', 'toilet', 'cell phone', 'refrigerator', 'hair drier', 'toothbrush', 'unknown')}
+('aeroplane', 'bicycle', 'bird', 'boat', 'bus', 'car', 'cat', 'cow', 'dog', 'horse', 'motorbike', 'sheep', 'train', 'elephant', 'bear', 'zebra', 'giraffe', 'truck', 'person', 'traffic light', 'fire hydrant', 'stop sign', 'parking meter', 'bench', 'chair', 'diningtable', 'pottedplant', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'microwave', 'oven', 'toaster', 'sink', 'refrigerator', 'bed', 'toilet', 'sofa', 'frisbee', 'skis', 'snowboard', 'sports ball', 'kite', 'baseball bat', 'baseball glove', 'skateboard', 'surfboard', 'tennis racket', 'banana', 'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog', 'pizza', 'donut', 'cake', 'laptop', 'mouse', 'remote', 'keyboard', 'cell phone', 'book', 'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush', 'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'tvmonitor', 'bottle', 'unknown')
+Not using distributed mode
+git:
+  sha: ea93b7477ef452cef37abcc97d935ecbb4406b82, status: has uncommited changes, branch: main
+
+Namespace(lr=0.0002, lr_backbone_names=['backbone.0'], lr_backbone=2e-05, lr_linear_proj_names=['reference_points', 'sampling_offsets'], lr_linear_proj_mult=0.1, batch_size=10, weight_decay=0.0001, epochs=50, lr_drop=40, lr_drop_epochs=None, clip_max_norm=0.1, sgd=False, with_box_refine=False, two_stage=False, masks=False, backbone='dino_resnet50', frozen_weights=None, dilation=False, position_embedding='sine', position_embedding_scale=6.283185307179586, num_feature_levels=4, enc_layers=6, dec_layers=6, dim_feedforward=1024, hidden_dim=256, dropout=0.1, nheads=8, num_queries=100, dec_n_points=4, enc_n_points=4, aux_loss=True, set_cost_class=2, set_cost_bbox=5, set_cost_giou=2, cls_loss_coef=2, bbox_loss_coef=5, giou_loss_coef=2, focal_alpha=0.25, coco_panoptic_path=None, remove_difficult=False, output_dir='', device='cuda', seed=42, resume='', start_epoch=0, eval=True, viz=False, eval_every=5, num_workers=3, cache_mode=False, PREV_INTRODUCED_CLS=80, CUR_INTRODUCED_CLS=0, unmatched_boxes=True, top_unk=5, featdim=1024, invalid_cls_logits=False, NC_branch=True, bbox_thresh=0.3, pretrain='exps/hypow_t4_ft_hierarchical_split.pth', nc_loss_coef=2, train_set='', test_set='burst_val_test', num_classes=81, nc_epoch=9, dataset='HIERARCHICAL', data_root='./data/OWOD', unk_conf_w=1.0, model_type='hypow', wandb_name='PROB_V1_t1', wandb_project='', obj_loss_coef=0.0008, obj_temp=1.3, freeze_prob_model=False, num_inst_per_class=50, exemplar_replay_selection=False, exemplar_replay_max_length=10000000000.0, exemplar_replay_dir='', exemplar_replay_prev_file='', exemplar_replay_cur_file='', exemplar_replay_random=False, debug_epoch=False, debug_eval=False, use_2007=1, checkpoint_period=10, emb_per_class=10, momentum=0.1, logging_freq=40, eval_during_training=500, start_relabelling=0, all_background=True, relabel=True, ablation=False, layer_option=0, double_eval=False, use_hyperbolic=True, hyperbolic_coeff=0.05, family_hyperbolic_coeff=0.02, samples_per_category=1, hyperbolic_temp=0.2, hyperbolic_c=0.1, clip_r=1.0, update_freq=50, family_regularizer=True, save_objectness=False, hyperbolic_mean=False, unknown_weight=0.1, use_focal_cls=True, empty_weight=0.1, ablation_save_objectness=False, ablation_save_embedding=False, ablation_cosine=False, use_max_uperbound=True, collect_buffer=False, save_buffer=True, load_buffer=False, buffer_dir='', relevant_matrix_dir='', save_eval_det_file='', predict_custom=True, burst_subdataset='HACS', burst_subset='val', video_id=None, detections_path='/home/uig93971/src/Hyp-OW-burst-eval/detections', burst_annot_path='/home/uig93971/src/data/TAO/burst_annotations', tao_frames_path='/home/uig93971/src/data/TAO/frames', distributed=False)
+Invalid class range: []
+DINO resnet50
+/home/uig93971/miniconda3/envs/hypow/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/home/uig93971/miniconda3/envs/hypow/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+running with exemplar_replay_selection
+DeformableDETR(
+  (transformer): DeformableTransformer(
+    (encoder): DeformableTransformerEncoder(
+      (layers): ModuleList(
+        (0): DeformableTransformerEncoderLayer(
+          (self_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (1): DeformableTransformerEncoderLayer(
+          (self_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): DeformableTransformerEncoderLayer(
+          (self_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (3): DeformableTransformerEncoderLayer(
+          (self_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (4): DeformableTransformerEncoderLayer(
+          (self_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): DeformableTransformerEncoderLayer(
+          (self_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+    (decoder): DeformableTransformerDecoder(
+      (layers): ModuleList(
+        (0): DeformableTransformerDecoderLayer(
+          (cross_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout4): Dropout(p=0.1, inplace=False)
+          (norm3): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (1): DeformableTransformerDecoderLayer(
+          (cross_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout4): Dropout(p=0.1, inplace=False)
+          (norm3): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (2): DeformableTransformerDecoderLayer(
+          (cross_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout4): Dropout(p=0.1, inplace=False)
+          (norm3): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (3): DeformableTransformerDecoderLayer(
+          (cross_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout4): Dropout(p=0.1, inplace=False)
+          (norm3): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (4): DeformableTransformerDecoderLayer(
+          (cross_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout4): Dropout(p=0.1, inplace=False)
+          (norm3): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+        (5): DeformableTransformerDecoderLayer(
+          (cross_attn): MSDeformAttn(
+            (sampling_offsets): Linear(in_features=256, out_features=256, bias=True)
+            (attention_weights): Linear(in_features=256, out_features=128, bias=True)
+            (value_proj): Linear(in_features=256, out_features=256, bias=True)
+            (output_proj): Linear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (norm1): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=256, out_features=256, bias=True)
+          )
+          (dropout2): Dropout(p=0.1, inplace=False)
+          (norm2): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+          (linear1): Linear(in_features=256, out_features=1024, bias=True)
+          (dropout3): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=256, bias=True)
+          (dropout4): Dropout(p=0.1, inplace=False)
+          (norm3): LayerNorm((256,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+    )
+    (reference_points): Linear(in_features=256, out_features=2, bias=True)
+  )
+  (manifold): PoincareBall manifold
+  (tpc): ToPoincare(c=0.1, train_x=False)
+  (class_embed): ModuleList(
+    (0): Linear(in_features=256, out_features=81, bias=True)
+    (1): Linear(in_features=256, out_features=81, bias=True)
+    (2): Linear(in_features=256, out_features=81, bias=True)
+    (3): Linear(in_features=256, out_features=81, bias=True)
+    (4): Linear(in_features=256, out_features=81, bias=True)
+    (5): Linear(in_features=256, out_features=81, bias=True)
+  )
+  (bbox_embed): ModuleList(
+    (0): MLP(
+      (layers): ModuleList(
+        (0): Linear(in_features=256, out_features=256, bias=True)
+        (1): Linear(in_features=256, out_features=256, bias=True)
+        (2): Linear(in_features=256, out_features=4, bias=True)
+      )
+    )
+    (1): MLP(
+      (layers): ModuleList(
+        (0): Linear(in_features=256, out_features=256, bias=True)
+        (1): Linear(in_features=256, out_features=256, bias=True)
+        (2): Linear(in_features=256, out_features=4, bias=True)
+      )
+    )
+    (2): MLP(
+      (layers): ModuleList(
+        (0): Linear(in_features=256, out_features=256, bias=True)
+        (1): Linear(in_features=256, out_features=256, bias=True)
+        (2): Linear(in_features=256, out_features=4, bias=True)
+      )
+    )
+    (3): MLP(
+      (layers): ModuleList(
+        (0): Linear(in_features=256, out_features=256, bias=True)
+        (1): Linear(in_features=256, out_features=256, bias=True)
+        (2): Linear(in_features=256, out_features=4, bias=True)
+      )
+    )
+    (4): MLP(
+      (layers): ModuleList(
+        (0): Linear(in_features=256, out_features=256, bias=True)
+        (1): Linear(in_features=256, out_features=256, bias=True)
+        (2): Linear(in_features=256, out_features=4, bias=True)
+      )
+    )
+    (5): MLP(
+      (layers): ModuleList(
+        (0): Linear(in_features=256, out_features=256, bias=True)
+        (1): Linear(in_features=256, out_features=256, bias=True)
+        (2): Linear(in_features=256, out_features=4, bias=True)
+      )
+    )
+  )
+  (query_embed): Embedding(100, 512)
+  (input_proj): ModuleList(
+    (0): Sequential(
+      (0): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): GroupNorm(32, 256, eps=1e-05, affine=True)
+    )
+    (1): Sequential(
+      (0): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): GroupNorm(32, 256, eps=1e-05, affine=True)
+    )
+    (2): Sequential(
+      (0): Conv2d(2048, 256, kernel_size=(1, 1), stride=(1, 1))
+      (1): GroupNorm(32, 256, eps=1e-05, affine=True)
+    )
+    (3): Sequential(
+      (0): Conv2d(2048, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (1): GroupNorm(32, 256, eps=1e-05, affine=True)
+    )
+  )
+  (backbone): Joiner(
+    (0): Backbone(
+      (body): IntermediateLayerGetter(
+        (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+        (bn1): FrozenBatchNorm2d()
+        (relu): ReLU(inplace=True)
+        (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+        (layer1): Sequential(
+          (0): Bottleneck(
+            (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+            (downsample): Sequential(
+              (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (1): FrozenBatchNorm2d()
+            )
+          )
+          (1): Bottleneck(
+            (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (2): Bottleneck(
+            (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+        )
+        (layer2): Sequential(
+          (0): Bottleneck(
+            (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+            (downsample): Sequential(
+              (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+              (1): FrozenBatchNorm2d()
+            )
+          )
+          (1): Bottleneck(
+            (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (2): Bottleneck(
+            (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (3): Bottleneck(
+            (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+        )
+        (layer3): Sequential(
+          (0): Bottleneck(
+            (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+            (downsample): Sequential(
+              (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(2, 2), bias=False)
+              (1): FrozenBatchNorm2d()
+            )
+          )
+          (1): Bottleneck(
+            (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (2): Bottleneck(
+            (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (3): Bottleneck(
+            (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (4): Bottleneck(
+            (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (5): Bottleneck(
+            (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+        )
+        (layer4): Sequential(
+          (0): Bottleneck(
+            (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+            (downsample): Sequential(
+              (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(2, 2), bias=False)
+              (1): FrozenBatchNorm2d()
+            )
+          )
+          (1): Bottleneck(
+            (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+          (2): Bottleneck(
+            (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn1): FrozenBatchNorm2d()
+            (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+            (bn2): FrozenBatchNorm2d()
+            (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+            (bn3): FrozenBatchNorm2d()
+            (relu): ReLU(inplace=True)
+          )
+        )
+      )
+    )
+    (1): PositionEmbeddingSine()
+  )
+)
+number of params: 39742295
+HIERARCHICAL
+
+burst_val_test
+None
+Dataset OWDetection
+    Number of datapoints: 13931
+    Root location: ./data/OWOD
+    [['val'], Compose(
+    <datasets.transforms.RandomResize object at 0x7fd8ab15e440>
+    Compose(
+    <datasets.transforms.ToTensor object at 0x7fd8ab2740d0>
+    <datasets.transforms.Normalize object at 0x7fd8ab2747c0>
+)
+)]
+Initialized from the pre-training model
+<All keys matched successfully>
+Running inference on BURST dataset
+/home/uig93971/src/Hyp-OW-burst-eval/models/position_encoding.py:49: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  dim_t = self.temperature ** (2 * (dim_t // 2) / self.num_pos_feats)
+/home/uig93971/miniconda3/envs/hypow/lib/python3.10/site-packages/torch/functional.py:478: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2894.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/uig93971/src/Hyp-OW-burst-eval/models/hypow_deformable_detr.py:1176: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  topk_boxes = topk_indexes // out_logits.shape[2]
+Processed videos 1/206
+Time passed: 220.5520 seconds, Avg time per video: 220.5520 seconds
+Processed videos 2/206
+Time passed: 443.4302 seconds, Avg time per video: 221.7151 seconds
+Processed videos 3/206
+Time passed: 665.5002 seconds, Avg time per video: 221.8334 seconds
+Processed videos 4/206
+Time passed: 879.3535 seconds, Avg time per video: 219.8384 seconds
+Processed videos 5/206
+Time passed: 1075.3239 seconds, Avg time per video: 215.0648 seconds
+Processed videos 6/206
+Time passed: 1297.4160 seconds, Avg time per video: 216.2360 seconds
+Processed videos 7/206
+Time passed: 1519.3041 seconds, Avg time per video: 217.0434 seconds
+Processed videos 8/206
+Time passed: 1711.9074 seconds, Avg time per video: 213.9884 seconds
+Processed videos 9/206
+Time passed: 1933.2394 seconds, Avg time per video: 214.8044 seconds
+Processed videos 10/206
+Time passed: 2075.6480 seconds, Avg time per video: 207.5648 seconds
+Processed videos 11/206
+Time passed: 2292.7294 seconds, Avg time per video: 208.4299 seconds
+Processed videos 12/206
+Time passed: 2513.3444 seconds, Avg time per video: 209.4454 seconds
+Processed videos 13/206
+Time passed: 2663.2515 seconds, Avg time per video: 204.8655 seconds
+Processed videos 14/206
+Time passed: 2759.3479 seconds, Avg time per video: 197.0963 seconds
+Processed videos 15/206
+Time passed: 2936.1534 seconds, Avg time per video: 195.7436 seconds
+Processed videos 16/206
+Time passed: 3156.7000 seconds, Avg time per video: 197.2938 seconds
+Processed videos 17/206
+Time passed: 3376.8200 seconds, Avg time per video: 198.6365 seconds
+Processed videos 18/206
+Time passed: 3596.4513 seconds, Avg time per video: 199.8028 seconds
+Processed videos 19/206
+Time passed: 3817.5305 seconds, Avg time per video: 200.9227 seconds
+Processed videos 20/206
+Time passed: 4038.5813 seconds, Avg time per video: 201.9291 seconds
+Processed videos 21/206
+Time passed: 4261.8697 seconds, Avg time per video: 202.9462 seconds
+Processed videos 22/206
+Time passed: 4438.8996 seconds, Avg time per video: 201.7682 seconds
+Processed videos 23/206
+Time passed: 4659.6309 seconds, Avg time per video: 202.5926 seconds
+Processed videos 24/206
+Time passed: 4880.2127 seconds, Avg time per video: 203.3422 seconds
+Processed videos 25/206
+Time passed: 5101.6693 seconds, Avg time per video: 204.0668 seconds
+Processed videos 26/206
+Time passed: 5323.8197 seconds, Avg time per video: 204.7623 seconds
+Processed videos 27/206
+Time passed: 5522.6529 seconds, Avg time per video: 204.5427 seconds
+Processed videos 28/206
+Time passed: 5744.8550 seconds, Avg time per video: 205.1734 seconds
+Processed videos 29/206
+Time passed: 5943.2071 seconds, Avg time per video: 204.9382 seconds
+Processed videos 30/206
+Time passed: 6166.2663 seconds, Avg time per video: 205.5422 seconds
+Processed videos 31/206
+Time passed: 6336.9564 seconds, Avg time per video: 204.4179 seconds
+Processed videos 32/206
+Time passed: 6559.2915 seconds, Avg time per video: 204.9779 seconds
+Processed videos 33/206
+Time passed: 6780.4699 seconds, Avg time per video: 205.4688 seconds
+Processed videos 34/206
+Time passed: 7001.0842 seconds, Avg time per video: 205.9142 seconds
+Processed videos 35/206
+Time passed: 7223.1492 seconds, Avg time per video: 206.3757 seconds
+Processed videos 36/206
+Time passed: 7428.4839 seconds, Avg time per video: 206.3468 seconds
+Processed videos 37/206
+Time passed: 7532.9736 seconds, Avg time per video: 203.5939 seconds
+Processed videos 38/206
+Time passed: 7754.2532 seconds, Avg time per video: 204.0593 seconds
+Processed videos 39/206
+Time passed: 7873.3699 seconds, Avg time per video: 201.8813 seconds
+Processed videos 40/206
+Time passed: 8096.1793 seconds, Avg time per video: 202.4045 seconds
+Processed videos 41/206
+Time passed: 8318.2643 seconds, Avg time per video: 202.8845 seconds
+Processed videos 42/206
+Time passed: 8540.5432 seconds, Avg time per video: 203.3463 seconds
+Processed videos 43/206
+Time passed: 8763.0933 seconds, Avg time per video: 203.7929 seconds
+Processed videos 44/206
+Time passed: 8967.0367 seconds, Avg time per video: 203.7963 seconds
+Processed videos 45/206
+Time passed: 9188.6509 seconds, Avg time per video: 204.1922 seconds
+Processed videos 46/206
+Time passed: 9409.6521 seconds, Avg time per video: 204.5577 seconds
+Processed videos 47/206
+Time passed: 9631.1089 seconds, Avg time per video: 204.9172 seconds
+Processed videos 48/206
+Time passed: 9852.9126 seconds, Avg time per video: 205.2690 seconds
+Processed videos 49/206
+Time passed: 10073.2698 seconds, Avg time per video: 205.5769 seconds
+Processed videos 50/206
+Time passed: 10251.5910 seconds, Avg time per video: 205.0318 seconds
+Processed videos 51/206
+Time passed: 10473.5240 seconds, Avg time per video: 205.3632 seconds
+Processed videos 52/206
+Time passed: 10695.2545 seconds, Avg time per video: 205.6780 seconds
+Processed videos 53/206
+Time passed: 10916.3849 seconds, Avg time per video: 205.9695 seconds
+Processed videos 54/206
+Time passed: 11138.1782 seconds, Avg time per video: 206.2626 seconds
+Processed videos 55/206
+Time passed: 11359.3105 seconds, Avg time per video: 206.5329 seconds
+Processed videos 56/206
+Time passed: 11544.1973 seconds, Avg time per video: 206.1464 seconds
+Processed videos 57/206
+Time passed: 11726.1473 seconds, Avg time per video: 205.7219 seconds
+Processed videos 58/206
+Time passed: 11947.8578 seconds, Avg time per video: 205.9975 seconds
+Processed videos 59/206
+Time passed: 12169.3743 seconds, Avg time per video: 206.2606 seconds
+Processed videos 60/206
+Time passed: 12354.4317 seconds, Avg time per video: 205.9072 seconds
+Processed videos 61/206
+Time passed: 12575.7523 seconds, Avg time per video: 206.1599 seconds
+Processed videos 62/206
+Time passed: 12796.4225 seconds, Avg time per video: 206.3939 seconds
+Processed videos 63/206
+Time passed: 12984.7473 seconds, Avg time per video: 206.1071 seconds
+Processed videos 64/206
+Time passed: 13144.0889 seconds, Avg time per video: 205.3764 seconds
+Processed videos 65/206
+Time passed: 13366.1638 seconds, Avg time per video: 205.6333 seconds
+Processed videos 66/206
+Time passed: 13586.9250 seconds, Avg time per video: 205.8625 seconds
+Processed videos 67/206
+Time passed: 13727.0444 seconds, Avg time per video: 204.8813 seconds
+Processed videos 68/206
+Time passed: 13949.0725 seconds, Avg time per video: 205.1334 seconds
+Processed videos 69/206
+Time passed: 14170.5478 seconds, Avg time per video: 205.3703 seconds
+Processed videos 70/206
+Time passed: 14384.1711 seconds, Avg time per video: 205.4882 seconds
+Processed videos 71/206
+Time passed: 14606.1045 seconds, Avg time per video: 205.7198 seconds
+Processed videos 72/206
+Time passed: 14829.3607 seconds, Avg time per video: 205.9633 seconds
+Processed videos 73/206
+Time passed: 15034.1749 seconds, Avg time per video: 205.9476 seconds
+Processed videos 74/206
+Time passed: 15255.8246 seconds, Avg time per video: 206.1598 seconds
+Processed videos 75/206
+Time passed: 15440.0651 seconds, Avg time per video: 205.8675 seconds
+Processed videos 76/206
+Time passed: 15621.6762 seconds, Avg time per video: 205.5484 seconds
+Processed videos 77/206
+Time passed: 15843.9258 seconds, Avg time per video: 205.7653 seconds
+Processed videos 78/206
+Time passed: 16066.1665 seconds, Avg time per video: 205.9765 seconds
+Processed videos 79/206
+Time passed: 16251.1783 seconds, Avg time per video: 205.7111 seconds
+Processed videos 80/206
+Time passed: 16473.6775 seconds, Avg time per video: 205.9210 seconds
+Processed videos 81/206
+Time passed: 16695.5481 seconds, Avg time per video: 206.1179 seconds
+Processed videos 82/206
+Time passed: 16916.9727 seconds, Avg time per video: 206.3045 seconds
+Processed videos 83/206
+Time passed: 17138.3936 seconds, Avg time per video: 206.4867 seconds
+Processed videos 84/206
+Time passed: 17359.2686 seconds, Avg time per video: 206.6580 seconds
+Processed videos 85/206
+Time passed: 17581.5825 seconds, Avg time per video: 206.8421 seconds
+Processed videos 86/206
+Time passed: 17804.2709 seconds, Avg time per video: 207.0264 seconds
+Processed videos 87/206
+Time passed: 18025.0433 seconds, Avg time per video: 207.1844 seconds
+Processed videos 88/206
+Time passed: 18170.8378 seconds, Avg time per video: 206.4868 seconds
+Processed videos 89/206
+Time passed: 18393.8068 seconds, Avg time per video: 206.6720 seconds
+Processed videos 90/206
+Time passed: 18615.2611 seconds, Avg time per video: 206.8362 seconds
+Processed videos 91/206
+Time passed: 18793.3280 seconds, Avg time per video: 206.5201 seconds
+Processed videos 92/206
+Time passed: 19016.4107 seconds, Avg time per video: 206.7001 seconds
+Processed videos 93/206
+Time passed: 19202.1219 seconds, Avg time per video: 206.4744 seconds
+Processed videos 94/206
+Time passed: 19424.2701 seconds, Avg time per video: 206.6412 seconds
+Processed videos 95/206
+Time passed: 19646.8919 seconds, Avg time per video: 206.8094 seconds
+Processed videos 96/206
+Time passed: 19824.1836 seconds, Avg time per video: 206.5019 seconds
+Processed videos 97/206
+Time passed: 20001.6835 seconds, Avg time per video: 206.2029 seconds
+Processed videos 98/206
+Time passed: 20223.8927 seconds, Avg time per video: 206.3663 seconds
+Processed videos 99/206
+Time passed: 20445.7213 seconds, Avg time per video: 206.5224 seconds
+Processed videos 100/206
+Time passed: 20667.5805 seconds, Avg time per video: 206.6758 seconds
+Processed videos 101/206
+Time passed: 20889.6348 seconds, Avg time per video: 206.8281 seconds
+Processed videos 102/206
+Time passed: 21083.2116 seconds, Avg time per video: 206.6982 seconds
+Processed videos 103/206
+Time passed: 21293.5086 seconds, Avg time per video: 206.7331 seconds
+Processed videos 104/206
+Time passed: 21513.9189 seconds, Avg time per video: 206.8646 seconds
+Processed videos 105/206
+Time passed: 21735.7216 seconds, Avg time per video: 207.0069 seconds
+Processed videos 106/206
+Time passed: 21957.6871 seconds, Avg time per video: 207.1480 seconds
+Processed videos 107/206
+Time passed: 22178.9786 seconds, Avg time per video: 207.2802 seconds
+Processed videos 108/206
+Time passed: 22399.7527 seconds, Avg time per video: 207.4051 seconds
+Processed videos 109/206
+Time passed: 22585.1030 seconds, Avg time per video: 207.2028 seconds
+Processed videos 110/206
+Time passed: 22806.4728 seconds, Avg time per video: 207.3316 seconds
+Processed videos 111/206
+Time passed: 22976.4829 seconds, Avg time per video: 206.9953 seconds
+Processed videos 112/206
+Time passed: 23156.0995 seconds, Avg time per video: 206.7509 seconds
+Processed videos 113/206
+Time passed: 23376.8645 seconds, Avg time per video: 206.8749 seconds
+Processed videos 114/206
+Time passed: 23599.3929 seconds, Avg time per video: 207.0122 seconds
+Processed videos 115/206
+Time passed: 23820.2372 seconds, Avg time per video: 207.1325 seconds
+Processed videos 116/206
+Time passed: 24001.7706 seconds, Avg time per video: 206.9118 seconds
+Processed videos 117/206
+Time passed: 24223.0252 seconds, Avg time per video: 207.0344 seconds
+Processed videos 118/206
+Time passed: 24443.8809 seconds, Avg time per video: 207.1515 seconds
+Processed videos 119/206
+Time passed: 24665.5378 seconds, Avg time per video: 207.2734 seconds
+Processed videos 120/206
+Time passed: 24881.5240 seconds, Avg time per video: 207.3460 seconds
+Processed videos 121/206
+Time passed: 25121.4227 seconds, Avg time per video: 207.6151 seconds
+Processed videos 122/206
+Time passed: 25347.8289 seconds, Avg time per video: 207.7691 seconds
+Processed videos 123/206
+Time passed: 25522.8001 seconds, Avg time per video: 207.5024 seconds
+Processed videos 124/206
+Time passed: 25739.4461 seconds, Avg time per video: 207.5762 seconds
+Processed videos 125/206
+Time passed: 25960.2920 seconds, Avg time per video: 207.6823 seconds
+Processed videos 126/206
+Time passed: 26132.6020 seconds, Avg time per video: 207.4016 seconds
+Processed videos 127/206
+Time passed: 26317.8149 seconds, Avg time per video: 207.2269 seconds
+Processed videos 128/206
+Time passed: 26538.8831 seconds, Avg time per video: 207.3350 seconds
+Processed videos 129/206
+Time passed: 26759.7408 seconds, Avg time per video: 207.4399 seconds
+Processed videos 130/206
+Time passed: 26944.4880 seconds, Avg time per video: 207.2653 seconds
+Processed videos 131/206
+Time passed: 27166.3013 seconds, Avg time per video: 207.3763 seconds
+Processed videos 132/206
+Time passed: 27388.1828 seconds, Avg time per video: 207.4862 seconds
+Processed videos 133/206
+Time passed: 27571.9488 seconds, Avg time per video: 207.3079 seconds
+Processed videos 134/206
+Time passed: 27794.3339 seconds, Avg time per video: 207.4204 seconds
+Processed videos 135/206
+Time passed: 28016.4066 seconds, Avg time per video: 207.5289 seconds
+Processed videos 136/206
+Time passed: 28194.9015 seconds, Avg time per video: 207.3155 seconds
+Processed videos 137/206
+Time passed: 28409.4638 seconds, Avg time per video: 207.3683 seconds
+Processed videos 138/206
+Time passed: 28631.9346 seconds, Avg time per video: 207.4778 seconds
+Processed videos 139/206
+Time passed: 28853.6484 seconds, Avg time per video: 207.5802 seconds
+Processed videos 140/206
+Time passed: 29074.2722 seconds, Avg time per video: 207.6734 seconds
+Processed videos 141/206
+Time passed: 29215.6226 seconds, Avg time per video: 207.2030 seconds
+Processed videos 142/206
+Time passed: 29437.1978 seconds, Avg time per video: 207.3042 seconds
+Processed videos 143/206
+Time passed: 29659.3518 seconds, Avg time per video: 207.4081 seconds
+Processed videos 144/206
+Time passed: 29853.4977 seconds, Avg time per video: 207.3160 seconds
+Processed videos 145/206
+Time passed: 30075.6063 seconds, Avg time per video: 207.4180 seconds
+Processed videos 146/206
+Time passed: 30296.6070 seconds, Avg time per video: 207.5110 seconds
+Processed videos 147/206
+Time passed: 30516.9543 seconds, Avg time per video: 207.5983 seconds
+Processed videos 148/206
+Time passed: 30736.7053 seconds, Avg time per video: 207.6804 seconds
+Processed videos 149/206
+Time passed: 30958.1999 seconds, Avg time per video: 207.7732 seconds
+Processed videos 150/206
+Time passed: 31181.1092 seconds, Avg time per video: 207.8741 seconds
+Processed videos 151/206
+Time passed: 31402.6117 seconds, Avg time per video: 207.9643 seconds
+Processed videos 152/206
+Time passed: 31625.1245 seconds, Avg time per video: 208.0600 seconds
+Processed videos 153/206
+Time passed: 31846.5292 seconds, Avg time per video: 208.1472 seconds
+Processed videos 154/206
+Time passed: 32069.2499 seconds, Avg time per video: 208.2419 seconds
+Processed videos 155/206
+Time passed: 32290.7572 seconds, Avg time per video: 208.3275 seconds
+Processed videos 156/206
+Time passed: 32512.8282 seconds, Avg time per video: 208.4156 seconds
+Processed videos 157/206
+Time passed: 32697.9628 seconds, Avg time per video: 208.2673 seconds
+Processed videos 158/206
+Time passed: 32870.2327 seconds, Avg time per video: 208.0394 seconds
+Processed videos 159/206
+Time passed: 33091.5282 seconds, Avg time per video: 208.1228 seconds
+Processed videos 160/206
+Time passed: 33312.7152 seconds, Avg time per video: 208.2045 seconds
+Processed videos 161/206
+Time passed: 33488.9429 seconds, Avg time per video: 208.0059 seconds
+Processed videos 162/206
+Time passed: 33710.3695 seconds, Avg time per video: 208.0887 seconds
+Processed videos 163/206
+Time passed: 33933.7312 seconds, Avg time per video: 208.1824 seconds
+Processed videos 164/206
+Time passed: 34132.6210 seconds, Avg time per video: 208.1257 seconds
+Processed videos 165/206
+Time passed: 34354.0051 seconds, Avg time per video: 208.2061 seconds
+Processed videos 166/206
+Time passed: 34538.7199 seconds, Avg time per video: 208.0646 seconds
+Processed videos 167/206
+Time passed: 34760.7514 seconds, Avg time per video: 208.1482 seconds
+Processed videos 168/206
+Time passed: 34983.0821 seconds, Avg time per video: 208.2326 seconds
+Processed videos 169/206
+Time passed: 35204.4609 seconds, Avg time per video: 208.3104 seconds
+Processed videos 170/206
+Time passed: 35390.8487 seconds, Avg time per video: 208.1815 seconds
+Processed videos 171/206
+Time passed: 35566.8059 seconds, Avg time per video: 207.9930 seconds
+Processed videos 172/206
+Time passed: 35788.1508 seconds, Avg time per video: 208.0706 seconds
+Processed videos 173/206
+Time passed: 35980.7604 seconds, Avg time per video: 207.9813 seconds
+Processed videos 174/206
+Time passed: 36150.6730 seconds, Avg time per video: 207.7625 seconds
+Processed videos 175/206
+Time passed: 36372.2958 seconds, Avg time per video: 207.8417 seconds
+Processed videos 176/206
+Time passed: 36594.1022 seconds, Avg time per video: 207.9210 seconds
+Processed videos 177/206
+Time passed: 36810.7297 seconds, Avg time per video: 207.9702 seconds
+Processed videos 178/206
+Time passed: 36987.5563 seconds, Avg time per video: 207.7953 seconds
+Processed videos 179/206
+Time passed: 37210.3979 seconds, Avg time per video: 207.8793 seconds
+Processed videos 180/206
+Time passed: 37386.6957 seconds, Avg time per video: 207.7039 seconds
+Processed videos 181/206
+Time passed: 37572.0542 seconds, Avg time per video: 207.5804 seconds
+Processed videos 182/206
+Time passed: 37793.5876 seconds, Avg time per video: 207.6571 seconds
+Processed videos 183/206
+Time passed: 37978.4824 seconds, Avg time per video: 207.5327 seconds
+Processed videos 184/206
+Time passed: 38200.1497 seconds, Avg time per video: 207.6095 seconds
+Processed videos 185/206
+Time passed: 38405.4103 seconds, Avg time per video: 207.5968 seconds
+Processed videos 186/206
+Time passed: 38628.1487 seconds, Avg time per video: 207.6782 seconds
+Processed videos 187/206
+Time passed: 38849.6508 seconds, Avg time per video: 207.7521 seconds
+Processed videos 188/206
+Time passed: 39071.9103 seconds, Avg time per video: 207.8293 seconds
+Processed videos 189/206
+Time passed: 39295.5077 seconds, Avg time per video: 207.9127 seconds
+Processed videos 190/206
+Time passed: 39517.0105 seconds, Avg time per video: 207.9843 seconds
+Processed videos 191/206
+Time passed: 39739.5751 seconds, Avg time per video: 208.0606 seconds
+Processed videos 192/206
+Time passed: 39960.5830 seconds, Avg time per video: 208.1280 seconds
+Processed videos 193/206
+Time passed: 40124.6720 seconds, Avg time per video: 207.8999 seconds
+Processed videos 194/206
+Time passed: 40347.2025 seconds, Avg time per video: 207.9753 seconds
+Processed videos 195/206
+Time passed: 40569.0881 seconds, Avg time per video: 208.0466 seconds
+Processed videos 196/206
+Time passed: 40752.8605 seconds, Avg time per video: 207.9228 seconds
+Processed videos 197/206
+Time passed: 40974.7497 seconds, Avg time per video: 207.9937 seconds
+Processed videos 198/206
+Time passed: 41195.2408 seconds, Avg time per video: 208.0568 seconds
+Processed videos 199/206
+Time passed: 41368.0395 seconds, Avg time per video: 207.8796 seconds
+Processed videos 200/206
+Time passed: 41588.9013 seconds, Avg time per video: 207.9445 seconds
+Processed videos 201/206
+Time passed: 41677.6103 seconds, Avg time per video: 207.3513 seconds
+Processed videos 202/206
+Time passed: 41899.6621 seconds, Avg time per video: 207.4241 seconds
+Processed videos 203/206
+Time passed: 42121.3013 seconds, Avg time per video: 207.4941 seconds
+Processed videos 204/206
+Time passed: 42343.1997 seconds, Avg time per video: 207.5647 seconds
+Processed videos 205/206
+Time passed: 42564.0644 seconds, Avg time per video: 207.6296 seconds
+Processed videos 206/206
+Time passed: 42785.0884 seconds, Avg time per video: 207.6946 seconds
+67719.39user 3859.59system 18:20:36elapsed 108%CPU (0avgtext+0avgdata 3933068maxresident)k
+83566656inputs+14608720outputs (12728major+1888554948minor)pagefaults 0swaps
