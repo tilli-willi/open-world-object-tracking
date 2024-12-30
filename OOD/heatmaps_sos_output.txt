@@ -1,0 +1,23 @@
+nohup: ignoring input
+/home/uig93971/src/sam2/sam2/modeling/sam/transformer.py:23: UserWarning: Flash Attention is disabled as it requires a GPU with Ampere (8.0) CUDA capability.
+  OLD_GPU, USE_FLASH_ATTN, MATH_KERNEL_ON = get_sdpa_settings()
+/home/uig93971/src/sam2/sam2/sam2_image_predictor.py:314: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1729647327489/work/torch/csrc/utils/tensor_new.cpp:278.)
+  point_coords = torch.as_tensor(
+Processed videos 1/20
+Time passed: 613.8934 seconds, Avg time per video: 613.8934 seconds
+Processed videos 2/20
+Time passed: 2166.4265 seconds, Avg time per video: 1083.2132 seconds
+Processed videos 3/20
+Time passed: 3755.0969 seconds, Avg time per video: 1251.6990 seconds
+Processed videos 4/20
+Time passed: 5976.5431 seconds, Avg time per video: 1494.1358 seconds
+Processed videos 5/20
+Time passed: 7502.7992 seconds, Avg time per video: 1500.5598 seconds
+Processed videos 6/20
+Time passed: 8562.3291 seconds, Avg time per video: 1427.0549 seconds
+Processed videos 7/20
+Time passed: 10083.1678 seconds, Avg time per video: 1440.4525 seconds
+Processed videos 8/20
+Time passed: 11800.3816 seconds, Avg time per video: 1475.0477 seconds
+10678.45user 1970.76system 3:16:56elapsed 107%CPU (0avgtext+0avgdata 3312468maxresident)k
+5764295inputs+62498080outputs (3725major+433206387minor)pagefaults 0swaps
