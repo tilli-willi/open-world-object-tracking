@@ -19,3 +19,4 @@ ByteTrack/YOLOX_outputs/
 Hyp-OW-burst-eval/exps/
 Hyp-OW-burst-eval/detections/
 sam2/checkpoints/
+OOD/detections/
