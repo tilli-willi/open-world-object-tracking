@@ -15,6 +15,7 @@ import os
 import sys
 from typing import Iterable
  
+import numpy as np
 import torch
 import util.misc as utils
 from datasets.coco_eval import CocoEvaluator
@@ -30,6 +31,7 @@ from pytz import timezone
 from PIL import Image
 import sys
 import pdb
+import os.path as osp
 
 from pathlib import Path
 import json
@@ -151,8 +153,53 @@ def train_one_epoch(model: torch.nn.Module, criterion: torch.nn.Module,
    
     return {k: meter.global_avg for k, meter in metric_logger.meters.items()}
 
+
 @torch.no_grad()
-def predict_custom(model, criterion, postprocessors, device, dataset_name, 
+def predict_custom(model, criterion, postprocessors, device, video_set_path, detections_path,
+                   video_id=None, remove_background=False, pred_per_im=100):
+    model.eval()
+    criterion.eval()
+    
+    video_set_path = Path(video_set_path)
+    video_ids = [video_id] if video_id is not None else [os.path.basename(str(f)) for f in video_set_path.iterdir() if f.is_dir()]
+    
+    from datasets.coco import make_coco_transforms
+    from util.misc import nested_tensor_from_tensor_list
+    import time
+    
+    transforms=make_coco_transforms('burst_val_test')
+    videos_processed = 0
+    videos_total = len(video_ids)
+    inference_start_time = time.time()
+    for video_id in video_ids:
+        frame_paths = [str(f) for f in (video_set_path / video_id).iterdir() if f.is_file()]
+        results = {}
+        
+        for frame_path in frame_paths:
+            img = Image.open(frame_path).convert('RGB')
+            w, h = img.size
+            img, _ = transforms[-1](img, None)
+            
+            img_as_nested_tensor = nested_tensor_from_tensor_list([img]).to(device)
+            output = model(img_as_nested_tensor)
+            orig_target_sizes = torch.stack([torch.as_tensor([int(h), int(w)]).to(device) for i in range(1)], dim=0)
+            result = postprocessors['bbox'](output, orig_target_sizes, remove_background, pred_per_im)
+            for i in range(1): 
+                results.update({os.path.basename(frame_path): {key: value.cpu().numpy().tolist() for key, value in result[i].items()}})
+        
+        end_time = time.time()
+        
+        Path(detections_path).mkdir(parents=True, exist_ok=True)
+        with open(os.path.join(detections_path, video_id + ".json"), 'w') as f:
+            json.dump(results, f, indent=4)
+        videos_processed += 1
+        print(f"Processed videos {videos_processed}/{videos_total}")
+        print(f"Time passed: {(time.time() - inference_start_time):.4f} seconds, Avg time per video: {(time.time() - inference_start_time) / videos_processed:.4f} seconds")
+    return
+
+
+@torch.no_grad()
+def predict_burst(model, criterion, postprocessors, device, dataset_name, 
                    detections_path, burst_annot_path, tao_frames_path,
                    args, burst_subset="val", video_id=None, remove_background=False, pred_per_im=100):
     model.eval()

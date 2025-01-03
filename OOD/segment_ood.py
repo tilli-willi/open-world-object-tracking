@@ -172,9 +172,39 @@ def filter_masks(predictor, masks, scores, area_inc_threshold=2000):
         intersection_area = np.sum(np.array(refined_mask, dtype=bool) & np.array(mask, dtype=bool))
         if not (intersection_area / orig_area > 0.8 and refined_area - orig_area > area_inc_threshold): 
             filtered_masks.append(mask)
-            filtered_scores.append(score)
+            filtered_scores.append(float(score))
             
     return filtered_masks, filtered_scores
+
+
+def get_bounding_box(mask):
+    """
+    Calculate the bounding box of an object from a boolean segmentation mask.
+    
+    Parameters:
+        mask (numpy.ndarray): Boolean numpy array of shape (h, w) representing the segmentation mask.
+
+    Returns:
+        tuple: Bounding box coordinates (x_min, y_min, x_max, y_max).
+    """
+    # Get the indices of True values in the mask
+    rows, cols = np.where(mask)
+    
+    # If there are no True values, return None
+    if len(rows) == 0 or len(cols) == 0:
+        return None
+    
+    # Calculate the bounding box
+    x_min, x_max = cols.min(), cols.max()
+    y_min, y_max = rows.min(), rows.max()
+    
+    return [int(x_min), int(y_min), int(x_max), int(y_max)]
+
+def mask_to_rle_ann(mask: np.ndarray):
+    assert mask.ndim == 2, f"Mask must be a 2-D array, but got array of shape {mask.shape}"
+    rle = cocomask.encode(np.asfortranarray(mask.astype(np.uint8)))
+    rle["counts"] = rle["counts"].decode("utf-8")
+    return rle
 
 
 def segment_custom_video_set(video_set_path, detections_path, heatmap_path, video_id=None):
@@ -192,7 +222,7 @@ def segment_custom_video_set(video_set_path, detections_path, heatmap_path, vide
         torch.backends.cudnn.allow_tf32 = True
             
     # Model initialization
-    sam2_checkpoint = f"/home/uig93971/src/sam2/checkpoints/sam2.1_hiera_large.pt" # TODO add to arguments!
+    sam2_checkpoint = f"/home/uig93971/src/open-world-object-tracking/sam2/checkpoints/sam2.1_hiera_large.pt" # TODO add to arguments!
     model_cfg = f"configs/sam2.1/sam2.1_hiera_l.yaml"
     sam2_model = build_sam2(model_cfg, sam2_checkpoint, device=device)
     predictor = SAM2ImagePredictor(sam2_model)
@@ -232,11 +262,19 @@ def segment_custom_video_set(video_set_path, detections_path, heatmap_path, vide
             filtered_masks = np.array(masks)[scores.squeeze() > seg_threshold]
             filtered_scores = scores.squeeze()[scores.squeeze() > seg_threshold]
             filtered_masks, filtered_scores = filter_masks(predictor, filtered_masks, filtered_scores)
+            frame_entry = {'boxes': [], 'scores': [], 'masks': []}
             if len(filtered_masks) > 0:
                 filtered_masks = unoverlap_masks(filtered_masks, np.array(filtered_scores))
+                boxes = [get_bounding_box(mask) for mask in filtered_masks]
+                enc_masks = [mask_to_rle_ann(mask)['counts'] for mask in filtered_masks]
                 heatmap = np.sum(np.array(filtered_masks) * np.array(filtered_scores)[:, np.newaxis, np.newaxis], axis=0)
             else:
                 heatmap = np.zeros((h, w), dtype=np.float32)
+            frame_entry['boxes'] = boxes
+            frame_entry['scores'] = filtered_scores
+            frame_entry['masks'] = enc_masks
+            with open(os.path.join(detections_path, "boxes_masks", video_id, osp.splitext(os.path.basename(frame_path))[0] + ".json"), 'w') as f:
+                json.dump(frame_entry, f, indent=4)
             np.save(os.path.join(heatmap_path, video_id, osp.splitext(os.path.basename(frame_path))[0] + ".npy"), heatmap)
         
         videos_processed += 1

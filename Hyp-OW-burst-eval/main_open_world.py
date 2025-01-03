@@ -26,7 +26,7 @@ import datasets.samplers as samplers
 from datasets import build_dataset, get_coco_api_from_dataset
 from datasets.coco import make_coco_transforms , make_aug_transforms
 from datasets.torchvision_datasets.open_world import OWDetection
-from engine import evaluate, train_one_epoch, get_exemplar_replay, predict_custom
+from engine import evaluate, train_one_epoch, get_exemplar_replay, predict_burst, predict_custom
 from models import build_model 
 import wandb
 
@@ -250,7 +250,7 @@ def get_args_parser():
     
     # Custom arguments
     parser.add_argument('--save_eval_det_file', default='', type=str, help='generated detections directory')
-    parser.add_argument('--predict_custom', default=True, action='store_true', help='generate detections for BURST dataset')
+    parser.add_argument('--predict_burst', default=False, action='store_true', help='generate detections for BURST dataset')
     parser.add_argument('--burst_subdataset', type=str, help='choose BURST subdataset to run inference on (e.g. ArgoVerse, BDD, Charades, LaSOT, YFCC100M)')
     parser.add_argument('--burst_subset', type=str, help='choose BURST subset to run inference on (train, val, test)')
     parser.add_argument('--video_id', type=str, help='choose specific video id to run inference on, if None, run on all videos')
@@ -258,6 +258,8 @@ def get_args_parser():
     parser.add_argument('--burst_annot_path', default=None, type=str, help='path to BURST annotations')
     parser.add_argument('--tao_frames_path', default=None, type=str, help='path to TAO frames')
     
+    parser.add_argument('--predict_custom', default=False, action='store_true', help='generate detections for custom dataset')
+    parser.add_argument('--video_set_path', default=None, type=str, help='path to custom data set')
     return parser
 
 def main(args):
@@ -292,6 +294,28 @@ def main(args):
     print(model_without_ddp)
     n_parameters = sum(p.numel() for p in model.parameters() if p.requires_grad)
     print('number of params:', n_parameters)
+    
+    if args.pretrain:
+       
+        print('Initialized from the pre-training model')
+        checkpoint = torch.load(args.pretrain, map_location='cpu')
+        state_dict = checkpoint['model']
+        msg = model_without_ddp.load_state_dict(state_dict, strict=False)
+        print(msg)
+        args.start_epoch = checkpoint['epoch'] + 1
+
+    if args.predict_burst:
+        print('Running inference on BURST dataset')
+        predict_burst(model, criterion, postprocessors, device, args.burst_subdataset, 
+                       args.detections_path, args.burst_annot_path, args.tao_frames_path,
+                       args)
+        return
+    
+    if args.predict_custom:
+        print('Running inference on custom dataset')
+        predict_custom(model, criterion, postprocessors, device, args.video_set_path, 
+                       args.detections_path)
+        return
 
     dataset_train, dataset_val = get_datasets(args)
     
@@ -382,21 +406,7 @@ def main(args):
     
  
     
-    if args.pretrain:
-       
-        print('Initialized from the pre-training model')
-        checkpoint = torch.load(args.pretrain, map_location='cpu')
-        state_dict = checkpoint['model']
-        msg = model_without_ddp.load_state_dict(state_dict, strict=False)
-        print(msg)
-        args.start_epoch = checkpoint['epoch'] + 1
-
-    if args.predict_custom:
-        print('Running inference on BURST dataset')
-        predict_custom(model, criterion, postprocessors, device, args.burst_subdataset, 
-                       args.detections_path, args.burst_annot_path, args.tao_frames_path,
-                       args)
-        return
+    
     
     if args.eval:
      

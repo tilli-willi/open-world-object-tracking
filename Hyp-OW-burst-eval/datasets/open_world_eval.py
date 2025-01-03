@@ -309,8 +309,8 @@ def voc_ap(rec, prec, use_07_metric=False):
         ap = np.sum((mrec[i + 1] - mrec[i]) * mpre[i + 1])
     return ap
 
-with open('/home/uig93971/src/PROB/datasets/annot_conversion/tao_names2coco_names.json', 'r') as file:
-    TAO2COCO = json.load(file)
+# with open('/home/uig93971/src/PROB/datasets/annot_conversion/tao_names2coco_names.json', 'r') as file:
+#     TAO2COCO = json.load(file)
 
 @functools.lru_cache(maxsize=None)
 def parse_rec(filename, known_classes):

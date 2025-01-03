@@ -39,7 +39,6 @@ dependencies:
       - kiwisolver==1.4.7
       - lightning-utilities==0.11.8
       - matplotlib==3.8.1
-      - multiscaledeformableattention==1.0
       - numpy==1.26.4
       - packaging==24.1
       - pandas==1.5.1

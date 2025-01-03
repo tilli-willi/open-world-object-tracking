@@ -144,12 +144,12 @@ T4_CLASS_NAMES = [
 # ForkedPdb().set_trace()
 
 VOC_COCO_CLASS_NAMES["HIERARCHICAL"] = tuple(itertools.chain(T1_CLASS_NAMES, T2_CLASS_NAMES, T3_CLASS_NAMES, T4_CLASS_NAMES, UNK_CLASS))
-with open('/home/uig93971/src/PROB/datasets/annot_conversion/burst_minus_coco_class_names.json', 'r') as file:
-    BURST_MINUS_COCO = json.load(file)
-VOC_COCO_CLASS_NAMES["BURST_VAL"] = tuple(itertools.chain(VOC_CLASS_NAMES, T2_CLASS_NAMES, T3_CLASS_NAMES, T4_CLASS_NAMES, UNK_CLASS)) # TODO
+# with open('/home/uig93971/src/PROB/datasets/annot_conversion/burst_minus_coco_class_names.json', 'r') as file:
+#     BURST_MINUS_COCO = json.load(file)
+# VOC_COCO_CLASS_NAMES["BURST_VAL"] = tuple(itertools.chain(VOC_CLASS_NAMES, T2_CLASS_NAMES, T3_CLASS_NAMES, T4_CLASS_NAMES, UNK_CLASS)) # TODO
 
-with open('/home/uig93971/src/PROB/datasets/annot_conversion/tao_names2coco_names.json', 'r') as file:
-    TAO2COCO = json.load(file)
+# with open('/home/uig93971/src/PROB/datasets/annot_conversion/tao_names2coco_names.json', 'r') as file:
+#     TAO2COCO = json.load(file)
 
 print(VOC_COCO_CLASS_NAMES)
 
