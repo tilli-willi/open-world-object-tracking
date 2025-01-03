@@ -236,6 +236,7 @@ def segment_custom_video_set(video_set_path, detections_path, heatmap_path, vide
         frame_paths = [str(f) for f in (video_set_path / video_id).iterdir() if f.is_file()]
         det_for_video = json.load(open(os.path.join(detections_path, video_id + ".json")))
         Path(osp.join(heatmap_path, video_id)).mkdir(parents=True, exist_ok=True)
+        Path(osp.join(detections_path, "boxes_masks", video_id)).mkdir(parents=True, exist_ok=True)
         for frame_path in frame_paths:
             image = Image.open(frame_path)
             w, h = image.size
