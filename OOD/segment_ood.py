@@ -25,6 +25,11 @@ def make_parser():
     parser.add_argument('--detections_path', default=None, type=str, help='path to detections as boxes')
     parser.add_argument('--sam_model_size', type=str, choices=['tiny', 'small', 'base_plus', 'large'], help='choose SAM model size')
     parser.add_argument('--segmentation_setup_name', default=None, type=str, help='name of the segmentation setup')
+    parser.add_argument('--segment_custom_video_set', default=False, action='store_true', help='generate segmentations and heatmap for custom dataset')
+    
+    parser.add_argument('--segment_ood_tracklets', default=False, action='store_true', help='generate segmentations, heatmap and track masks for box tracklets')
+    parser.add_argument('--track_res_path', default=None, type=str, help='path to box tracklets')
+    
     return parser
 
 
@@ -155,10 +160,11 @@ def find_nearest_valid_pixel(mask, point):
     nearest_idx = np.unravel_index(np.argmin(distance), mask.shape)
     return nearest_idx
 
-def filter_masks(predictor, masks, scores, area_inc_threshold=2000):
+def filter_masks(predictor, masks, scores, track_ids, area_inc_threshold=2000):
     filtered_masks = []
     filtered_scores = []
-    for mask, score in zip(masks, scores):
+    filtered_track_ids = []
+    for mask, score, track_id in zip(masks, scores, track_ids):
         ref_point = np.array(find_centroid(mask))
         refined_mask, _, _ = predictor.predict(
             point_coords=[ref_point],
@@ -173,8 +179,9 @@ def filter_masks(predictor, masks, scores, area_inc_threshold=2000):
         if not (intersection_area / orig_area > 0.8 and refined_area - orig_area > area_inc_threshold): 
             filtered_masks.append(mask)
             filtered_scores.append(float(score))
+            filtered_track_ids.append(track_id)
             
-    return filtered_masks, filtered_scores
+    return filtered_masks, filtered_scores, filtered_track_ids
 
 
 def get_bounding_box(mask):
@@ -285,8 +292,122 @@ def segment_custom_video_set(video_set_path, detections_path, heatmap_path, vide
     return
 
 
+def get_tracklets_for_video(path):
+    tracklets = pd.read_csv(path + ".txt", header=None)
+    tracklets.columns = ["frame_id", 
+                     "object_id", 
+                     "b_t", 
+                     "b_l", 
+                     "b_w", 
+                     "b_h", 
+                     "confidence", 
+                     "Col8", 
+                     "Col9", 
+                     "Col10"]
+
+    tracklet_dict = {}
+    for _, row in tracklets.iterrows():
+        frame_id = int(row['frame_id'])
+        obj_data = row[['object_id', "b_t", "b_l", "b_w", "b_h", 'confidence']].tolist()
+        obj_data[0] = int(obj_data[0])
+        if frame_id not in tracklet_dict:
+            tracklet_dict[frame_id] = []
+        tracklet_dict[frame_id].append(obj_data)
+    return tracklet_dict
 
 
+def segment_ood_tracklets(video_set_path, track_res_path, video_id=None):
+    video_set_path = Path(video_set_path)
+    video_ids = [video_id] if video_id is not None else [os.path.basename(str(f)) for f in video_set_path.iterdir() if f.is_dir()]
+    
+    ##############################
+    device = torch.device("cuda")
+    
+    # use bfloat16 for the entire notebook
+    torch.autocast("cuda", dtype=torch.bfloat16).__enter__()
+    # turn on tfloat32 for Ampere GPUs (https://pytorch.org/docs/stable/notes/cuda.html#tensorfloat-32-tf32-on-ampere-devices)
+    if torch.cuda.get_device_properties(0).major >= 8:
+        torch.backends.cuda.matmul.allow_tf32 = True
+        torch.backends.cudnn.allow_tf32 = True
+            
+    # Model initialization
+    sam2_checkpoint = f"/home/uig93971/src/open-world-object-tracking/sam2/checkpoints/sam2.1_hiera_large.pt" # TODO add to arguments!
+    model_cfg = f"configs/sam2.1/sam2.1_hiera_l.yaml"
+    sam2_model = build_sam2(model_cfg, sam2_checkpoint, device=device)
+    predictor = SAM2ImagePredictor(sam2_model)
+    ##############################
+    
+    videos_processed = 0
+    videos_total = len(video_ids)
+    inference_start_time = time.time()
+    
+    for video_id in video_ids:
+        frame_paths = [str(f) for f in (video_set_path / video_id).iterdir() if f.is_file()]
+        frame_paths.sort()
+        tracklet_dict = get_tracklets_for_video(osp.join(track_res_path, video_id))
+        Path(osp.join(track_res_path, "heatmaps", video_id)).mkdir(parents=True, exist_ok=True)
+        Path(osp.join(track_res_path, "boxes_masks", video_id)).mkdir(parents=True, exist_ok=True)
+        Path(osp.join(track_res_path, "ood_prediction_tracked", video_id)).mkdir(parents=True, exist_ok=True)
+        for frame_id, frame_path in enumerate(frame_paths, 1):
+            image = Image.open(frame_path)
+            w, h = image.size
+            image = np.array(image.convert("RGB"))
+            predictor.set_image(image)
+
+            # objectness_threshold = 0.1 # TODO add to arguments
+            seg_threshold = 0.7 # TODO add to arguments
+            
+            cur_frame = tracklet_dict.get(frame_id, None)
+            cur_frame = [box for box in cur_frame 
+                         if (box[3] < 0.4 * w) 
+                         and (box[4] < 0.7 * h)] # TODO add to arguments
+            track_ids = np.array(cur_frame)[:, 0]
+            input_boxes = np.array(cur_frame)[:, 1:-1]
+            input_boxes[:, 2:] = input_boxes[:, 2:] + input_boxes[:, :2]
+            
+            masks, scores, _ = predictor.predict(
+                box=input_boxes,
+                multimask_output=False,
+            )
+
+            masks = masks.squeeze()
+            scores = scores.squeeze()
+            filtered_masks = np.array(masks)[scores > seg_threshold]
+            filtered_scores = scores[scores > seg_threshold]
+            filtered_track_ids = track_ids[scores > seg_threshold]
+            filtered_masks, filtered_scores, filtered_track_ids = filter_masks(predictor, filtered_masks, filtered_scores, filtered_track_ids)
+            frame_entry = {'seg_boxes': [], 'scores': [], 'masks': [], 'track_ids': []}
+            if len(filtered_masks) > 0:
+                filtered_masks = unoverlap_masks(filtered_masks, np.array(filtered_scores))
+                # Remove empty masks
+                filtered_masks_non_empty = []
+                filtered_scores_non_empty = []
+                filtered_track_ids_non_empty = []
+                for mask, score, track_id in zip(filtered_masks, filtered_scores, filtered_track_ids):
+                    if np.sum(mask) > 0:
+                        filtered_masks_non_empty.append(mask)
+                        filtered_scores_non_empty.append(score)
+                        filtered_track_ids_non_empty.append(track_id)
+                        
+                seg_boxes = [get_bounding_box(mask) for mask in filtered_masks_non_empty]
+                enc_masks = [mask_to_rle_ann(mask)['counts'] for mask in filtered_masks_non_empty]
+                heatmap = np.sum(np.array(filtered_masks_non_empty) * np.array(filtered_scores_non_empty)[:, np.newaxis, np.newaxis], axis=0)
+                track_mask = np.sum(np.array(filtered_masks_non_empty) * np.array(filtered_track_ids_non_empty, dtype=int)[:, np.newaxis, np.newaxis], axis=0)
+            else:
+                heatmap = np.zeros((h, w), dtype=np.float32)
+            frame_entry['seg_boxes'] = seg_boxes
+            frame_entry['scores'] = filtered_scores
+            frame_entry['masks'] = enc_masks
+            frame_entry['track_ids'] = filtered_track_ids_non_empty
+            with open(os.path.join(track_res_path, "boxes_masks", video_id, osp.splitext(os.path.basename(frame_path))[0] + ".json"), 'w') as f:
+                json.dump(frame_entry, f, indent=4)
+            np.save(os.path.join(track_res_path, "heatmaps", video_id, osp.splitext(os.path.basename(frame_path))[0] + ".npy"), heatmap)
+            np.save(os.path.join(track_res_path, "ood_prediction_tracked", video_id, osp.splitext(os.path.basename(frame_path))[0] + ".npy"), track_mask)
+        
+        videos_processed += 1
+        print(f"Processed videos {videos_processed}/{videos_total}")
+        print(f"Time passed: {(time.time() - inference_start_time):.4f} seconds, Avg time per video: {(time.time() - inference_start_time) / videos_processed:.4f} seconds")
+    return
 
 
 
@@ -295,4 +416,12 @@ def segment_custom_video_set(video_set_path, detections_path, heatmap_path, vide
 if __name__ == "__main__":
     args = make_parser().parse_args()
 
-    segment_custom_video_set(args.video_set_path, args.detections_path, args.heatmap_path)
+    if args.segment_custom_video_set:
+        print("Segmenting custom video set")
+        segment_custom_video_set(args.video_set_path, args.detections_path, args.heatmap_path)
+
+    if args.segment_ood_tracklets:
+        print("Segmenting OOD tracklets")
+        segment_ood_tracklets(args.video_set_path, args.track_res_path)
+    
+    

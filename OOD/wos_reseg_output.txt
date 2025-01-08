@@ -6,3 +6,93 @@ running segmentation of SOS and WOS
   OLD_GPU, USE_FLASH_ATTN, MATH_KERNEL_ON = get_sdpa_settings()
 /home/uig93971/src/open-world-object-tracking/sam2/sam2/sam2_image_predictor.py:314: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1729647327489/work/torch/csrc/utils/tensor_new.cpp:278.)
   point_coords = torch.as_tensor(
+Processed videos 1/44
+Time passed: 239.3534 seconds, Avg time per video: 239.3534 seconds
+Processed videos 2/44
+Time passed: 744.9742 seconds, Avg time per video: 372.4871 seconds
+Processed videos 3/44
+Time passed: 2188.4201 seconds, Avg time per video: 729.4734 seconds
+Processed videos 4/44
+Time passed: 2430.0955 seconds, Avg time per video: 607.5239 seconds
+Processed videos 5/44
+Time passed: 3440.0822 seconds, Avg time per video: 688.0165 seconds
+Processed videos 6/44
+Time passed: 4137.8273 seconds, Avg time per video: 689.6379 seconds
+Processed videos 7/44
+Time passed: 4516.0198 seconds, Avg time per video: 645.1457 seconds
+Processed videos 8/44
+Time passed: 4937.4587 seconds, Avg time per video: 617.1823 seconds
+Processed videos 9/44
+Time passed: 5290.3532 seconds, Avg time per video: 587.8170 seconds
+Processed videos 10/44
+Time passed: 5638.3245 seconds, Avg time per video: 563.8324 seconds
+Processed videos 11/44
+Time passed: 5897.5087 seconds, Avg time per video: 536.1372 seconds
+Processed videos 12/44
+Time passed: 6422.6103 seconds, Avg time per video: 535.2175 seconds
+Processed videos 13/44
+Time passed: 6771.8705 seconds, Avg time per video: 520.9131 seconds
+Processed videos 14/44
+Time passed: 6904.8131 seconds, Avg time per video: 493.2009 seconds
+Processed videos 15/44
+Time passed: 7183.8129 seconds, Avg time per video: 478.9209 seconds
+Processed videos 16/44
+Time passed: 7361.0682 seconds, Avg time per video: 460.0668 seconds
+Processed videos 17/44
+Time passed: 7658.2823 seconds, Avg time per video: 450.4872 seconds
+Processed videos 18/44
+Time passed: 7734.4638 seconds, Avg time per video: 429.6924 seconds
+Processed videos 19/44
+Time passed: 7905.2271 seconds, Avg time per video: 416.0646 seconds
+Processed videos 20/44
+Time passed: 8084.3805 seconds, Avg time per video: 404.2190 seconds
+Processed videos 21/44
+Time passed: 8221.9775 seconds, Avg time per video: 391.5227 seconds
+Processed videos 22/44
+Time passed: 8429.0682 seconds, Avg time per video: 383.1395 seconds
+Processed videos 23/44
+Time passed: 8540.1992 seconds, Avg time per video: 371.3130 seconds
+Processed videos 24/44
+Time passed: 9612.8507 seconds, Avg time per video: 400.5354 seconds
+Processed videos 25/44
+Time passed: 10098.4527 seconds, Avg time per video: 403.9381 seconds
+Processed videos 26/44
+Time passed: 10277.8284 seconds, Avg time per video: 395.3011 seconds
+Processed videos 27/44
+Time passed: 10740.1226 seconds, Avg time per video: 397.7823 seconds
+Processed videos 28/44
+Time passed: 11315.9576 seconds, Avg time per video: 404.1413 seconds
+Processed videos 29/44
+Time passed: 12159.7832 seconds, Avg time per video: 419.3029 seconds
+Processed videos 30/44
+Time passed: 12857.7954 seconds, Avg time per video: 428.5932 seconds
+Processed videos 31/44
+Time passed: 12984.1579 seconds, Avg time per video: 418.8438 seconds
+Processed videos 32/44
+Time passed: 13093.0034 seconds, Avg time per video: 409.1564 seconds
+Processed videos 33/44
+Time passed: 13227.3979 seconds, Avg time per video: 400.8302 seconds
+Processed videos 34/44
+Time passed: 13894.7345 seconds, Avg time per video: 408.6687 seconds
+Processed videos 35/44
+Time passed: 14299.7659 seconds, Avg time per video: 408.5647 seconds
+Processed videos 36/44
+Time passed: 14478.9822 seconds, Avg time per video: 402.1940 seconds
+Processed videos 37/44
+Time passed: 14652.1474 seconds, Avg time per video: 396.0040 seconds
+Processed videos 38/44
+Time passed: 14745.9840 seconds, Avg time per video: 388.0522 seconds
+Processed videos 39/44
+Time passed: 15236.7307 seconds, Avg time per video: 390.6854 seconds
+Processed videos 40/44
+Time passed: 15946.8853 seconds, Avg time per video: 398.6721 seconds
+Processed videos 41/44
+Time passed: 16580.1710 seconds, Avg time per video: 404.3944 seconds
+Processed videos 42/44
+Time passed: 17169.5695 seconds, Avg time per video: 408.7993 seconds
+Processed videos 43/44
+Time passed: 17914.7836 seconds, Avg time per video: 416.6229 seconds
+Processed videos 44/44
+Time passed: 19073.4064 seconds, Avg time per video: 433.4865 seconds
+20309.63user 3210.51system 5:18:11elapsed 123%CPU (0avgtext+0avgdata 3175356maxresident)k
+50978775inputs+229346040outputs (5535major+623403288minor)pagefaults 0swaps
