@@ -1,0 +1,144 @@
+nohup: ignoring input
+running segmentation of SOS and WOS
++ PY_ARGS=
++ python -u segment_ood.py --video_set_path /home/uig93971/src/data/street_obstacle_sequences/raw_data --detections_path /home/uig93971/src/data/street_obstacle_sequences/detections --heatmap_path /home/uig93971/src/data/street_obstacle_sequences/detections/heatmaps
+/home/uig93971/src/open-world-object-tracking/sam2/sam2/modeling/sam/transformer.py:23: UserWarning: Flash Attention is disabled as it requires a GPU with Ampere (8.0) CUDA capability.
+  OLD_GPU, USE_FLASH_ATTN, MATH_KERNEL_ON = get_sdpa_settings()
+/home/uig93971/src/open-world-object-tracking/sam2/sam2/sam2_image_predictor.py:314: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1729647327489/work/torch/csrc/utils/tensor_new.cpp:278.)
+  point_coords = torch.as_tensor(
+Processed videos 1/20
+Time passed: 1849.8820 seconds, Avg time per video: 1849.8820 seconds
+Processed videos 2/20
+Time passed: 3285.2876 seconds, Avg time per video: 1642.6438 seconds
+Processed videos 3/20
+Time passed: 5037.4493 seconds, Avg time per video: 1679.1498 seconds
+Processed videos 4/20
+Time passed: 6546.4276 seconds, Avg time per video: 1636.6071 seconds
+Processed videos 5/20
+Time passed: 7713.7897 seconds, Avg time per video: 1542.7581 seconds
+Processed videos 6/20
+Time passed: 8735.1761 seconds, Avg time per video: 1455.8627 seconds
+Processed videos 7/20
+Time passed: 9870.8517 seconds, Avg time per video: 1410.1217 seconds
+Processed videos 8/20
+Time passed: 11018.3214 seconds, Avg time per video: 1377.2902 seconds
+Processed videos 9/20
+Time passed: 13028.8786 seconds, Avg time per video: 1447.6532 seconds
+Processed videos 10/20
+Time passed: 15033.2762 seconds, Avg time per video: 1503.3276 seconds
+Processed videos 11/20
+Time passed: 16331.4781 seconds, Avg time per video: 1484.6798 seconds
+Processed videos 12/20
+Time passed: 18191.7748 seconds, Avg time per video: 1515.9812 seconds
+Processed videos 13/20
+Time passed: 18816.2809 seconds, Avg time per video: 1447.4062 seconds
+Processed videos 14/20
+Time passed: 20546.8678 seconds, Avg time per video: 1467.6334 seconds
+Processed videos 15/20
+Time passed: 22293.2402 seconds, Avg time per video: 1486.2160 seconds
+Processed videos 16/20
+Time passed: 24741.4564 seconds, Avg time per video: 1546.3410 seconds
+Processed videos 17/20
+Time passed: 26411.6381 seconds, Avg time per video: 1553.6258 seconds
+Processed videos 18/20
+Time passed: 27531.5725 seconds, Avg time per video: 1529.5318 seconds
+Processed videos 19/20
+Time passed: 29151.5439 seconds, Avg time per video: 1534.2918 seconds
+Processed videos 20/20
+Time passed: 30988.3494 seconds, Avg time per video: 1549.4175 seconds
++ PY_ARGS=
++ python -u segment_ood.py --video_set_path /home/uig93971/src/data/wos/raw_data --detections_path /home/uig93971/src/data/wos/detections --heatmap_path /home/uig93971/src/data/wos/detections/heatmaps
+/home/uig93971/src/open-world-object-tracking/sam2/sam2/modeling/sam/transformer.py:23: UserWarning: Flash Attention is disabled as it requires a GPU with Ampere (8.0) CUDA capability.
+  OLD_GPU, USE_FLASH_ATTN, MATH_KERNEL_ON = get_sdpa_settings()
+/home/uig93971/src/open-world-object-tracking/sam2/sam2/sam2_image_predictor.py:314: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1729647327489/work/torch/csrc/utils/tensor_new.cpp:278.)
+  point_coords = torch.as_tensor(
+Processed videos 1/44
+Time passed: 233.8169 seconds, Avg time per video: 233.8169 seconds
+Processed videos 2/44
+Time passed: 727.0947 seconds, Avg time per video: 363.5473 seconds
+Processed videos 3/44
+Time passed: 2161.5348 seconds, Avg time per video: 720.5116 seconds
+Processed videos 4/44
+Time passed: 2398.7458 seconds, Avg time per video: 599.6865 seconds
+Processed videos 5/44
+Time passed: 3399.5381 seconds, Avg time per video: 679.9076 seconds
+Processed videos 6/44
+Time passed: 4051.2497 seconds, Avg time per video: 675.2083 seconds
+Processed videos 7/44
+Time passed: 4418.9890 seconds, Avg time per video: 631.2842 seconds
+Processed videos 8/44
+Time passed: 4832.8442 seconds, Avg time per video: 604.1055 seconds
+Processed videos 9/44
+Time passed: 5182.4249 seconds, Avg time per video: 575.8250 seconds
+Processed videos 10/44
+Time passed: 5523.0067 seconds, Avg time per video: 552.3007 seconds
+Processed videos 11/44
+Time passed: 5778.7329 seconds, Avg time per video: 525.3394 seconds
+Processed videos 12/44
+Time passed: 6292.5432 seconds, Avg time per video: 524.3786 seconds
+Processed videos 13/44
+Time passed: 6636.6124 seconds, Avg time per video: 510.5086 seconds
+Processed videos 14/44
+Time passed: 6767.1374 seconds, Avg time per video: 483.3670 seconds
+Processed videos 15/44
+Time passed: 7042.8905 seconds, Avg time per video: 469.5260 seconds
+Processed videos 16/44
+Time passed: 7216.6964 seconds, Avg time per video: 451.0435 seconds
+Processed videos 17/44
+Time passed: 7513.3434 seconds, Avg time per video: 441.9614 seconds
+Processed videos 18/44
+Time passed: 7588.6650 seconds, Avg time per video: 421.5925 seconds
+Processed videos 19/44
+Time passed: 7759.2691 seconds, Avg time per video: 408.3826 seconds
+Processed videos 20/44
+Time passed: 7937.1090 seconds, Avg time per video: 396.8555 seconds
+Processed videos 21/44
+Time passed: 8074.8419 seconds, Avg time per video: 384.5163 seconds
+Processed videos 22/44
+Time passed: 8280.1854 seconds, Avg time per video: 376.3721 seconds
+Processed videos 23/44
+Time passed: 8391.5467 seconds, Avg time per video: 364.8499 seconds
+Processed videos 24/44
+Time passed: 9470.7978 seconds, Avg time per video: 394.6166 seconds
+Processed videos 25/44
+Time passed: 9948.1507 seconds, Avg time per video: 397.9260 seconds
+Processed videos 26/44
+Time passed: 10128.2840 seconds, Avg time per video: 389.5494 seconds
+Processed videos 27/44
+Time passed: 10594.4848 seconds, Avg time per video: 392.3883 seconds
+Processed videos 28/44
+Time passed: 11146.6965 seconds, Avg time per video: 398.0963 seconds
+Processed videos 29/44
+Time passed: 11975.2575 seconds, Avg time per video: 412.9399 seconds
+Processed videos 30/44
+Time passed: 12664.3984 seconds, Avg time per video: 422.1466 seconds
+Processed videos 31/44
+Time passed: 12789.1965 seconds, Avg time per video: 412.5547 seconds
+Processed videos 32/44
+Time passed: 12898.8930 seconds, Avg time per video: 403.0904 seconds
+Processed videos 33/44
+Time passed: 13027.0326 seconds, Avg time per video: 394.7586 seconds
+Processed videos 34/44
+Time passed: 13687.3892 seconds, Avg time per video: 402.5703 seconds
+Processed videos 35/44
+Time passed: 14080.0790 seconds, Avg time per video: 402.2880 seconds
+Processed videos 36/44
+Time passed: 14250.5214 seconds, Avg time per video: 395.8478 seconds
+Processed videos 37/44
+Time passed: 14421.2337 seconds, Avg time per video: 389.7631 seconds
+Processed videos 38/44
+Time passed: 14510.1400 seconds, Avg time per video: 381.8458 seconds
+Processed videos 39/44
+Time passed: 14978.8495 seconds, Avg time per video: 384.0731 seconds
+Processed videos 40/44
+Time passed: 15682.0506 seconds, Avg time per video: 392.0513 seconds
+Processed videos 41/44
+Time passed: 16310.1342 seconds, Avg time per video: 397.8082 seconds
+Processed videos 42/44
+Time passed: 16908.7303 seconds, Avg time per video: 402.5888 seconds
+Processed videos 43/44
+Time passed: 17667.8109 seconds, Avg time per video: 410.8793 seconds
+Processed videos 44/44
+Time passed: 18860.7460 seconds, Avg time per video: 428.6533 seconds
+51638.09user 8353.83system 13:51:14elapsed 120%CPU (0avgtext+0avgdata 3382916maxresident)k
+58163337inputs+518432872outputs (6460major+1630051697minor)pagefaults 0swaps

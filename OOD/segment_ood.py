@@ -234,6 +234,7 @@ def segment_custom_video_set(video_set_path, detections_path, heatmap_path, vide
     
     for video_id in video_ids:
         frame_paths = [str(f) for f in (video_set_path / video_id).iterdir() if f.is_file()]
+        frame_paths.sort()
         det_for_video = json.load(open(os.path.join(detections_path, video_id + ".json")))
         Path(osp.join(heatmap_path, video_id)).mkdir(parents=True, exist_ok=True)
         Path(osp.join(detections_path, "boxes_masks", video_id)).mkdir(parents=True, exist_ok=True)
@@ -248,9 +249,9 @@ def segment_custom_video_set(video_set_path, detections_path, heatmap_path, vide
                     
             det_preproc = preprocess_detections(det_for_video[os.path.basename(frame_path)])
             input_boxes = np.array([box for box in det_preproc 
-                                    if (box[-2] > 0.1) 
+                                    if (box[-2] > objectness_threshold) 
                                     and (abs(box[0] - box[2]) < 0.4 * w) 
-                                    and (abs(box[1] - box[3]) < 0.4 * h)])[:, 0:-2] # TODO add to arguments
+                                    and (abs(box[1] - box[3]) < 0.7 * h)])[:, 0:-2] # TODO add to arguments
 
 
             masks, scores, _ = predictor.predict(

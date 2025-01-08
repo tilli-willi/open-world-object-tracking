@@ -177,7 +177,7 @@ class BYTETracker(object):
         bboxes /= scale
 
         remain_inds = scores > self.args.track_thresh
-        inds_low = scores > 0.1
+        inds_low = scores > 0.0
         inds_high = scores < self.args.track_thresh
         
         # print(np.__version__)
@@ -205,16 +205,18 @@ class BYTETracker(object):
                 unconfirmed.append(track)
             else:
                 tracked_stracks.append(track)
+        # print('unconfirmed ', len(unconfirmed))
+        # print('tracked_stracks ', len(tracked_stracks))
 
         ''' Step 2: First association, with high score detection boxes'''
         strack_pool = joint_stracks(tracked_stracks, self.lost_stracks)
         # Predict the current location with KF
         STrack.multi_predict(strack_pool)
         dists = matching.iou_distance(strack_pool, detections)
-        if not self.args.mot20:
-            dists = matching.fuse_score(dists, detections)
+        # if not self.args.mot20:
+        #     dists = matching.fuse_score(dists, detections)
         matches, u_track, u_detection = matching.linear_assignment(dists, thresh=self.args.match_thresh)
-        # print(matches, u_track, u_detection)
+        # print(len(matches), len(u_track), len(u_detection))
 
         for itracked, idet in matches:
             track = strack_pool[itracked]
@@ -236,7 +238,7 @@ class BYTETracker(object):
             detections_second = []
         r_tracked_stracks = [strack_pool[i] for i in u_track if strack_pool[i].state == TrackState.Tracked]
         dists = matching.iou_distance(r_tracked_stracks, detections_second)
-        matches, u_track, u_detection_second = matching.linear_assignment(dists, thresh=0.5)
+        matches, u_track, u_detection_second = matching.linear_assignment(dists, thresh=self.args.match_thresh)
         for itracked, idet in matches:
             track = r_tracked_stracks[itracked]
             det = detections_second[idet]
@@ -256,9 +258,9 @@ class BYTETracker(object):
         '''Deal with unconfirmed tracks, usually tracks with only one beginning frame'''
         detections = [detections[i] for i in u_detection]
         dists = matching.iou_distance(unconfirmed, detections)
-        if not self.args.mot20:
-            dists = matching.fuse_score(dists, detections)
-        matches, u_unconfirmed, u_detection = matching.linear_assignment(dists, thresh=0.7)
+        # if not self.args.mot20:
+        #     dists = matching.fuse_score(dists, detections)
+        matches, u_unconfirmed, u_detection = matching.linear_assignment(dists, thresh=self.args.match_thresh)
         # print('unconfirmed')
         # print(matches, u_unconfirmed, u_detection)
         for itracked, idet in matches:
@@ -270,12 +272,15 @@ class BYTETracker(object):
             removed_stracks.append(track)
 
         """ Step 4: Init new stracks"""
+        # print(len([track for track in activated_starcks if track.is_activated]))
+        # print('u_detection ', len(u_detection))
         for inew in u_detection:
             track = detections[inew]
             if track.score < self.det_thresh:
                 continue
             track.activate(self.kalman_filter, self.frame_id)
             activated_starcks.append(track)
+        # print(len([track for track in activated_starcks if track.is_activated]))
         # print('Activated: {}'.format(len(activated_starcks)))
         """ Step 5: Update state"""
         for track in self.lost_stracks:
@@ -288,7 +293,7 @@ class BYTETracker(object):
         self.tracked_stracks = [t for t in self.tracked_stracks if t.state == TrackState.Tracked]
         self.tracked_stracks = joint_stracks(self.tracked_stracks, activated_starcks)
         self.tracked_stracks = joint_stracks(self.tracked_stracks, refind_stracks)
-        # print('tracked_stracks', len(self.tracked_stracks))
+        # print('tracked_stracks ', len(self.tracked_stracks))
         # print(self.tracked_stracks)
         self.lost_stracks = sub_stracks(self.lost_stracks, self.tracked_stracks)
         self.lost_stracks.extend(lost_stracks)

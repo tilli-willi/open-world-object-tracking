@@ -107,7 +107,7 @@ def dti(txt_path, save_path, n_min=25, n_dti=20):
                         data_dti[n, 2:6] = frames_dti[list(frames_dti.keys())[n]]
                         data_dti[n, 6:] = [1, -1, -1, -1]
                     tracklet_dti = np.vstack((tracklet, data_dti))
-            seq_results = np.vstack((seq_results, tracklet_dti))
+                seq_results = np.vstack((seq_results, tracklet_dti))
         save_seq_txt = os.path.join(save_path, seq_name)
         seq_results = seq_results[1:]
         seq_results = seq_results[seq_results[:, 0].argsort()]
@@ -115,14 +115,12 @@ def dti(txt_path, save_path, n_min=25, n_dti=20):
 
 
 if __name__ == '__main__':
-    track_res_path = "/home/uig93971/src/ByteTrack/tracking_results/default/val"
-    datasets = ['ArgoVerse', 'BDD', 'Charades', 'LaSOT', 'YFCC100M']
-    for dataset in datasets:        
-        txt_path = os.path.join(track_res_path, dataset)
-        save_path = '/opt/tiger/demo/ByteTrack/YOLOX_outputs/yolox_x_mix_det/track_results_dti'
+    track_res_path = "/home/uig93971/src/data/street_obstacle_sequences/tracking_res/track_thresh0.1"
+    # track_res_path = "/home/uig93971/src/data/wos/tracking_res/track_thresh0.1"
+    save_path = "/home/uig93971/src/data/street_obstacle_sequences/tracking_res/track_thresh0.1_dti"
         
-        mkdir_if_missing(save_path)
-        dti(txt_path, save_path, n_min=5, n_dti=20)
+    mkdir_if_missing(save_path)
+    dti(track_res_path, save_path, n_min=5, n_dti=10)
 
     '''
     mota_best = 0.0

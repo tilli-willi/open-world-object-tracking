@@ -1,0 +1,8 @@
+nohup: ignoring input
+running segmentation of SOS and WOS
++ PY_ARGS=
++ python -u segment_ood.py --video_set_path /home/uig93971/src/data/wos/raw_data --detections_path /home/uig93971/src/data/wos/detections --heatmap_path /home/uig93971/src/data/wos/detections/heatmaps
+/home/uig93971/src/open-world-object-tracking/sam2/sam2/modeling/sam/transformer.py:23: UserWarning: Flash Attention is disabled as it requires a GPU with Ampere (8.0) CUDA capability.
+  OLD_GPU, USE_FLASH_ATTN, MATH_KERNEL_ON = get_sdpa_settings()
+/home/uig93971/src/open-world-object-tracking/sam2/sam2/sam2_image_predictor.py:314: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1729647327489/work/torch/csrc/utils/tensor_new.cpp:278.)
+  point_coords = torch.as_tensor(

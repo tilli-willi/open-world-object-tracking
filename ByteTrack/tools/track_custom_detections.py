@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import os.path as osp
+from pathlib import Path
 import time
 
 import numpy as np
@@ -10,13 +11,10 @@ import torch
 
 from loguru import logger
 
-from yolox.data.data_augment import preproc
-from yolox.exp import get_exp
-from yolox.utils import fuse_model, get_model_info, postprocess
-from yolox.utils.visualize import plot_tracking
 from yolox.tracker.byte_tracker import BYTETracker
 from yolox.tracking_utils.timer import Timer
 
+from PIL import Image
 
 IMAGE_EXT = [".jpg", ".jpeg", ".webp", ".bmp", ".png"]
 
@@ -68,7 +66,7 @@ def make_parser():
     )
     # tracking args
     parser.add_argument("--track_thresh", type=float, default=0.5, help="tracking confidence threshold")
-    parser.add_argument("--track_buffer", type=int, default=30, help="the frames for keep lost tracks")
+    parser.add_argument("--track_buffer", type=int, default=15, help="the frames for keep lost tracks")
     parser.add_argument("--match_thresh", type=float, default=0.8, help="matching threshold for tracking")
     parser.add_argument(
         "--aspect_ratio_thresh", type=float, default=1.6,
@@ -82,6 +80,10 @@ def make_parser():
     parser.add_argument('--detections_path', default=None, type=str, help='path to save detections')
     parser.add_argument('--burst_annot_path', default=None, type=str, help='path to BURST annotations')
     parser.add_argument('--track_results_path', default=None, type=str, help='path to tracking results')
+    parser.add_argument('--track_burst', default=False, action='store_true', help='generate tracklets for BURST dataset')
+    
+    parser.add_argument('--track_custom', default=False, action='store_true', help='generate tracklets for custom dataset')
+    parser.add_argument('--video_set_path', default=None, type=str, help='path to custom data set')
     return parser
 
 
@@ -166,7 +168,7 @@ def preprocess_detections(detections, iou_threshold = 0.5,
     return np.array(final_det, dtype=np.float64)
     
 
-def track_custom(tracking_res_path, dataset_name, 
+def track_burst(tracking_res_path, dataset_name, 
                  detections_path, burst_annot_path,
                  args, burst_subset="val", video_id=None):
     burst_gt_path = os.path.join(burst_annot_path, burst_subset, "all_classes.json")
@@ -226,20 +228,79 @@ def track_custom(tracking_res_path, dataset_name,
         print(f"Time passed: {(time.time() - inference_start_time):.4f} seconds, Avg time per video: {(time.time() - inference_start_time) / videos_processed:.4f} seconds")
 
 
-def main(exp, args):
-    if not args.experiment_name:
-        args.experiment_name = exp.exp_name
+def track_custom(tracking_res_path, video_set_path, detections_path,
+                 args, video_id=None):
+    video_set_path = Path(video_set_path)
+    video_ids = [video_id] if video_id is not None else [os.path.basename(str(f)) for f in video_set_path.iterdir() if f.is_dir()]
+    
+    videos_processed = 0
+    videos_total = len(video_ids)
+    inference_start_time = time.time()
+    for video_id in video_ids:
+        frame_names = [osp.basename(str(f)) for f in (video_set_path / video_id).iterdir() if f.is_file()]
+        frame_names.sort()
+        det_for_video = json.load(open(os.path.join(detections_path, video_id + ".json")))
+        
+        first_frame = Image.open(osp.join(video_set_path, video_id, frame_names[0]))
+        w, h = first_frame.size
+        
+        tracker = BYTETracker(args, frame_rate=args.fps)
+        timer = Timer()
+        results = []
+        
+        for frame_id, frame_name in enumerate(frame_names, 1):
+            # print("frame_id ", frame_id)
+            outputs = [preprocess_detections(det_for_video[frame_name], iou_threshold=0.7, 
+                                             scale_for_known=1., scale_for_unknown=1.)]
+            if outputs[0] is not None:
+                online_targets = tracker.update(outputs[0][:, :5], [h, w], (h, w))
+                online_tlwhs = []
+                online_ids = []
+                online_scores = []
+                for t in online_targets:
+                    tlwh = t.tlwh
+                    tid = t.track_id
+                    if tlwh[2] * tlwh[3] > args.min_box_area: # ignoring tiny boxes
+                        online_tlwhs.append(tlwh)
+                        online_ids.append(tid)
+                        online_scores.append(t.score)
+                        # save results
+                        results.append(
+                            f"{frame_id},{tid},{tlwh[0]:.2f},{tlwh[1]:.2f},{tlwh[2]:.2f},{tlwh[3]:.2f},{t.score:.2f},-1,-1,-1\n"
+                        )
+                timer.toc()
+            # print(len(outputs[0]))
+            # print(len(online_targets))
+            # if frame_id == 2:
+            #     return
 
-    args.device = torch.device("cuda" if args.device == "gpu" else "cpu")
+            # if frame_id % 20 == 0:
+            #     logger.info('Processing frame {} ({:.2f} fps)'.format(frame_id, 1. / max(1e-5, timer.average_time)))
 
+        os.makedirs(osp.join(tracking_res_path, "track_thresh" + str(args.track_thresh)), exist_ok=True)
+        res_file = osp.join(tracking_res_path, "track_thresh" + str(args.track_thresh), f"{video_id}.txt")        
+        with open(res_file, 'w') as f:
+            f.writelines(results)
+        
+        videos_processed += 1
+        print(f"Processed videos {videos_processed}/{videos_total}")
+        print(f"Time passed: {(time.time() - inference_start_time):.4f} seconds, Avg time per video: {(time.time() - inference_start_time) / videos_processed:.4f} seconds")
+
+
+
+def main(args):
     logger.info("Args: {}".format(args))
 
-    track_custom(args.track_results_path, args.burst_subdataset, 
-                 args.detections_path, args.burst_annot_path, args)
+    if args.track_custom:
+        track_custom(args.track_results_path, args.video_set_path, args.detections_path, args)
+        return
+    
+    if args.track_burst:
+        track_burst(args.track_results_path, args.burst_subdataset, 
+                    args.detections_path, args.burst_annot_path, args)
+        return
 
 
 if __name__ == "__main__":
     args = make_parser().parse_args()
-    exp = get_exp(args.exp_file)
-
-    main(exp, args)
+    main(args)
