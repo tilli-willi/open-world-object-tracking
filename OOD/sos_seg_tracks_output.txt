@@ -1,0 +1,51 @@
+nohup: ignoring input
+running track segmentation of SOS and WOS
++ PY_ARGS=
++ python -u segment_ood.py --segment_ood_tracklets --video_set_path /home/uig93971/src/data/street_obstacle_sequences/raw_data --track_res_path /home/uig93971/src/data/street_obstacle_sequences/tracking_res/track_thresh0.1_dti
+/home/uig93971/src/open-world-object-tracking/sam2/sam2/modeling/sam/transformer.py:23: UserWarning: Flash Attention is disabled as it requires a GPU with Ampere (8.0) CUDA capability.
+  OLD_GPU, USE_FLASH_ATTN, MATH_KERNEL_ON = get_sdpa_settings()
+Segmenting OOD tracklets
+/home/uig93971/src/open-world-object-tracking/sam2/sam2/sam2_image_predictor.py:314: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1729647327489/work/torch/csrc/utils/tensor_new.cpp:278.)
+  point_coords = torch.as_tensor(
+Processed videos 1/20
+Time passed: 1991.8239 seconds, Avg time per video: 1991.8240 seconds
+Processed videos 2/20
+Time passed: 3535.6310 seconds, Avg time per video: 1767.8155 seconds
+Processed videos 3/20
+Time passed: 5460.9929 seconds, Avg time per video: 1820.3310 seconds
+Processed videos 4/20
+Time passed: 7084.1778 seconds, Avg time per video: 1771.0444 seconds
+Processed videos 5/20
+Time passed: 8316.7023 seconds, Avg time per video: 1663.3405 seconds
+Processed videos 6/20
+Time passed: 9414.5879 seconds, Avg time per video: 1569.0980 seconds
+Processed videos 7/20
+Time passed: 10688.9024 seconds, Avg time per video: 1526.9861 seconds
+Processed videos 8/20
+Time passed: 11985.0372 seconds, Avg time per video: 1498.1296 seconds
+Processed videos 9/20
+Time passed: 14168.8344 seconds, Avg time per video: 1574.3149 seconds
+Processed videos 10/20
+Time passed: 16283.5609 seconds, Avg time per video: 1628.3561 seconds
+Processed videos 11/20
+Time passed: 17714.4656 seconds, Avg time per video: 1610.4060 seconds
+Processed videos 12/20
+Time passed: 19787.4466 seconds, Avg time per video: 1648.9539 seconds
+Processed videos 13/20
+Time passed: 20500.9765 seconds, Avg time per video: 1576.9982 seconds
+Processed videos 14/20
+Time passed: 22429.3994 seconds, Avg time per video: 1602.1000 seconds
+Processed videos 15/20
+Time passed: 24445.1438 seconds, Avg time per video: 1629.6763 seconds
+Processed videos 16/20
+Time passed: 27096.2818 seconds, Avg time per video: 1693.5176 seconds
+Processed videos 17/20
+Time passed: 28959.7855 seconds, Avg time per video: 1703.5168 seconds
+Processed videos 18/20
+Time passed: 30330.2569 seconds, Avg time per video: 1685.0143 seconds
+Processed videos 19/20
+Time passed: 32161.5386 seconds, Avg time per video: 1692.7126 seconds
+Processed videos 20/20
+Time passed: 34237.6602 seconds, Avg time per video: 1711.8830 seconds
+33943.03user 5958.50system 9:30:55elapsed 116%CPU (0avgtext+0avgdata 3820856maxresident)k
+9516558inputs+581068392outputs (5243major+1138653259minor)pagefaults 0swaps

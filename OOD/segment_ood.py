@@ -392,7 +392,7 @@ def segment_ood_tracklets(video_set_path, track_res_path, video_id=None):
                 seg_boxes = [get_bounding_box(mask) for mask in filtered_masks_non_empty]
                 enc_masks = [mask_to_rle_ann(mask)['counts'] for mask in filtered_masks_non_empty]
                 heatmap = np.sum(np.array(filtered_masks_non_empty) * np.array(filtered_scores_non_empty)[:, np.newaxis, np.newaxis], axis=0)
-                track_mask = np.sum(np.array(filtered_masks_non_empty) * np.array(filtered_track_ids_non_empty, dtype=int)[:, np.newaxis, np.newaxis], axis=0)
+                track_mask = np.sum(np.array(filtered_masks_non_empty) * np.array(filtered_track_ids_non_empty, dtype=np.int32)[:, np.newaxis, np.newaxis], axis=0)
             else:
                 heatmap = np.zeros((h, w), dtype=np.float32)
             frame_entry['seg_boxes'] = seg_boxes
