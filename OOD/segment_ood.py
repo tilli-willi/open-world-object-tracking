@@ -164,24 +164,27 @@ def filter_masks(predictor, masks, scores, track_ids, area_inc_threshold=2000):
     filtered_masks = []
     filtered_scores = []
     filtered_track_ids = []
+    refined_masks = []
     for mask, score, track_id in zip(masks, scores, track_ids):
-        ref_point = np.array(find_centroid(mask))
-        refined_mask, _, _ = predictor.predict(
-            point_coords=[ref_point],
-            point_labels=np.array([1]),
-            multimask_output=False,
-        )
-        refined_mask = refined_mask.squeeze()
-        refined_area = np.sum(refined_mask)
-        orig_area = np.sum(mask)
-        # print(mask)
-        intersection_area = np.sum(np.array(refined_mask, dtype=bool) & np.array(mask, dtype=bool))
-        if not (intersection_area / orig_area > 0.8 and refined_area - orig_area > area_inc_threshold): 
-            filtered_masks.append(mask)
-            filtered_scores.append(float(score))
-            filtered_track_ids.append(track_id)
+        if np.sum(mask) > 0:
+            ref_point = np.array(find_centroid(mask))
+            refined_mask, _, _ = predictor.predict(
+                point_coords=[ref_point],
+                point_labels=np.array([1]),
+                multimask_output=False,
+            )
+            refined_mask = refined_mask.squeeze()
+            refined_area = np.sum(refined_mask)
+            orig_area = np.sum(mask)
+            # print(mask)
+            intersection_area = np.sum(np.array(refined_mask, dtype=bool) & np.array(mask, dtype=bool))
+            if not (intersection_area / orig_area > 0.8 and refined_area - orig_area > area_inc_threshold): 
+                filtered_masks.append(mask)
+                filtered_scores.append(float(score))
+                filtered_track_ids.append(track_id)
+                refined_masks.append(refined_mask)
             
-    return filtered_masks, filtered_scores, filtered_track_ids
+    return filtered_masks, filtered_scores, filtered_track_ids, refined_masks
 
 
 def get_bounding_box(mask):
@@ -244,7 +247,7 @@ def segment_custom_video_set(video_set_path, detections_path, heatmap_path, vide
         frame_paths.sort()
         det_for_video = json.load(open(os.path.join(detections_path, video_id + ".json")))
         Path(osp.join(heatmap_path, video_id)).mkdir(parents=True, exist_ok=True)
-        Path(osp.join(detections_path, "boxes_masks", video_id)).mkdir(parents=True, exist_ok=True)
+        Path(osp.join(detections_path, "boxes_masks_with_refined", video_id)).mkdir(parents=True, exist_ok=True)
         for frame_path in frame_paths:
             image = Image.open(frame_path)
             w, h = image.size
@@ -252,7 +255,7 @@ def segment_custom_video_set(video_set_path, detections_path, heatmap_path, vide
             predictor.set_image(image)
 
             objectness_threshold = 0.1 # TODO add to arguments
-            seg_threshold = 0.7 # TODO add to arguments
+            seg_threshold = 0.5 # TODO add to arguments
                     
             det_preproc = preprocess_detections(det_for_video[os.path.basename(frame_path)])
             input_boxes = np.array([box for box in det_preproc 
@@ -270,21 +273,23 @@ def segment_custom_video_set(video_set_path, detections_path, heatmap_path, vide
             scores = scores.squeeze()
             filtered_masks = np.array(masks)[scores.squeeze() > seg_threshold]
             filtered_scores = scores.squeeze()[scores.squeeze() > seg_threshold]
-            filtered_masks, filtered_scores = filter_masks(predictor, filtered_masks, filtered_scores)
-            frame_entry = {'boxes': [], 'scores': [], 'masks': []}
+            filtered_masks, filtered_scores, _, refined_masks = filter_masks(predictor, filtered_masks, filtered_scores, np.zeros(len(filtered_masks)))
+            frame_entry = {'boxes': [], 'scores': [], 'masks': [], 'refined_masks': []}
             if len(filtered_masks) > 0:
                 filtered_masks = unoverlap_masks(filtered_masks, np.array(filtered_scores))
                 boxes = [get_bounding_box(mask) for mask in filtered_masks]
                 enc_masks = [mask_to_rle_ann(mask)['counts'] for mask in filtered_masks]
-                heatmap = np.sum(np.array(filtered_masks) * np.array(filtered_scores)[:, np.newaxis, np.newaxis], axis=0)
-            else:
-                heatmap = np.zeros((h, w), dtype=np.float32)
+                enc_refined_masks = [mask_to_rle_ann(mask)['counts'] for mask in refined_masks]
+                # heatmap = np.sum(np.array(filtered_masks) * np.array(filtered_scores)[:, np.newaxis, np.newaxis], axis=0)
+            # else:
+                # heatmap = np.zeros((h, w), dtype=np.float32)
             frame_entry['boxes'] = boxes
             frame_entry['scores'] = filtered_scores
             frame_entry['masks'] = enc_masks
-            with open(os.path.join(detections_path, "boxes_masks", video_id, osp.splitext(os.path.basename(frame_path))[0] + ".json"), 'w') as f:
+            frame_entry['refined_masks'] = enc_refined_masks
+            with open(os.path.join(detections_path, "boxes_masks_with_refined", video_id, osp.splitext(os.path.basename(frame_path))[0] + ".json"), 'w') as f:
                 json.dump(frame_entry, f, indent=4)
-            np.save(os.path.join(heatmap_path, video_id, osp.splitext(os.path.basename(frame_path))[0] + ".npy"), heatmap)
+            # np.save(os.path.join(heatmap_path, video_id, osp.splitext(os.path.basename(frame_path))[0] + ".npy"), heatmap)
         
         videos_processed += 1
         print(f"Processed videos {videos_processed}/{videos_total}")
@@ -375,7 +380,7 @@ def segment_ood_tracklets(video_set_path, track_res_path, video_id=None):
             filtered_masks = np.array(masks)[scores > seg_threshold]
             filtered_scores = scores[scores > seg_threshold]
             filtered_track_ids = track_ids[scores > seg_threshold]
-            filtered_masks, filtered_scores, filtered_track_ids = filter_masks(predictor, filtered_masks, filtered_scores, filtered_track_ids)
+            filtered_masks, filtered_scores, filtered_track_ids, _ = filter_masks(predictor, filtered_masks, filtered_scores, filtered_track_ids)
             frame_entry = {'seg_boxes': [], 'scores': [], 'masks': [], 'track_ids': []}
             if len(filtered_masks) > 0:
                 filtered_masks = unoverlap_masks(filtered_masks, np.array(filtered_scores))
